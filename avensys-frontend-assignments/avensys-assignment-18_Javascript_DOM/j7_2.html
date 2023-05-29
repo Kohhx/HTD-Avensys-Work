@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>This is Heading</h1>
+  <img src="a.jpeg">
+  <p>This is a paragraph</p>
+</body>
+<script>
+  let a = document.querySelector("img")
+  a.width = 300
+  a.setAttribute("alt", "Who is this")
+  a.setAttribute("width", "300px")
+  a.setAttribute("height",  "500px")
+  // a.getAttribute("width")  // This will only work if it is declared in html
+  // console.log(a["width"]=200)
+  console.log(a["alt"])
+  console.log( a.getAttribute("alt") )
+  let b = document.querySelector("body")
+  b.setAttribute("style","background-color:blue")
+
+  let c = document.querySelector("h1");
+  c.setAttribute("title","This is my header! Shhhh...")
+
+  document.querySelector("p").style.marginLeft = "100px"
+
+
+</script>
+</html>

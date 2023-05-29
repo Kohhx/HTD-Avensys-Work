@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="div1" class="d">
+    <h1 id="head1">This is the header</h1>
+    <p id="para1" class="d">This is a paragraph tag 1</p>
+    <p id="para2" class="d">This is a paragraph tag 2</p>
+    <p class="pp">This is paragraph 3</p>
+  </div>
+  <p id="para1">This is a paragraph tag</p>
+
+  <input id="input1" type="text">
+
+  <script>
+    let a = document.getElementById("para1").innerHTML
+    // let b = document.getElementById("input1")
+    let c = document.getElementById("div1").innerHTML
+    document.getElementById("para1").innerHTML = "This is a new paragraph tag"
+    console.log(a)
+    // document.write(b)
+
+    let d = document.getElementById("para2")
+    d.innerHTML = "Changed using DOM"
+
+    document.getElementById("head1").innerHTML = "My new header"
+
+    let e = document.getElementsByClassName("d")[1].innerHTML = "WHYYY!!"
+    console.log(e)
+
+    let f = document.getElementsByTagName("p")[2];
+    f.innerHTML= "Boom";
+    console.log(f)
+
+    let g = document.querySelectorAll("p")
+    console.log(g)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!-- pipes -->
+<h2>Angular Pipes</h2>
+
+<div>{{ lowerCase | lowercase }}</div>
+<div>{{ upperCase | uppercase }}</div>
+
+<div>{{ dateExample | date: 'dd-MM-yy'}}</div>
+<div>{{ dateExample | date: 'short'}}</div>
+<div>{{ dateExample | date: 'long' }</div>
+
+<div>{{ obj | json }}</div>
+
+<div> {{ numVal | currency: "IND" }}</div>
+
+<div> {{ numVal2 | percent }}</div>
+<div> {{ numVal2 | percent: '3.1-4' }}</div>
+
+<!-- // Pipe chaining -->
+<div>{{ obj | json | uppercase}}</div>
+<div>{{ dateExample | date: 'long' | lowercase}}</div>

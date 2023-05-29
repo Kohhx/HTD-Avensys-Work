@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    class Employee {
+
+      constructor(name, id) {
+        this.name = name;
+        this.id = id;
+        console.log("This is the name of the employee: " + name)
+        console.log("This is the id of the employee: " + id)
+      }
+
+      login() {
+        console.log("Employee can login")
+      }
+
+      logout() {
+        console.log("Employee can logout")
+      }
+
+      requestLeave(leaves) {
+        console.log("Any employee will be having benefits 1")
+        console.log("Any employee will be having benefits 2")
+        console.log("Any employee will be having benefits 3")
+        console.log("Any employee will be having benefits 4")
+        console.log("Any employee will be having benefits 5")
+        console.log("Any employee will be having benefits 6")
+        console.log("Any employee will be having benefits 7")
+        console.log("Any employee will be having benefits 8")
+        console.log("He is on leave for " + leaves + " day" )
+      }
+    }
+
+    class Programmer extends Employee {
+      // This is automatically called when Programmer is created
+      // constructor (...args) {
+      //   super(...args)
+      // }
+
+      constructor(name,id) {
+        super(name,id)
+        console.log("This benefit given for new constructor")
+      }
+
+
+      requestCoffee(coffeeNum) {
+        console.log("Programmer wants " + coffeeNum + " cups of coffee")
+      }
+
+      requestLeave(leaves) {
+        super.requestLeave(leaves)
+        console.log(" and one extra as you are a programmer" )
+      }
+    }
+
+    let koh = new Programmer("Koh",100);
+    koh.login();
+    koh.requestLeave(5);
+    koh.requestCoffee(2);
+  </script>
+</body>
+</html>

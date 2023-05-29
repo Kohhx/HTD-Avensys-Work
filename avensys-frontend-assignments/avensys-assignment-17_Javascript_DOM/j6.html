@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    // let a = [1, 2, 3, 4]
+    // let n = prompt("Input number: ");
+    // a.push(parseInt(n));
+    // console.log(a)
+
+    // let b = [1, 2, 3, 4]
+    // let m = -1;
+    // while (m != 0){
+    //   m = parseInt(prompt("Input number: "));
+    //   b.push(m);
+    // }
+    // console.log(b)
+
+    // let b = [1, 2, 3, 4]
+    // let m = -1;
+    // while (m != 0 && !isNaN(m)) {
+    //   m = parseInt(prompt("Input number: "));
+    //   if (!isNaN(m) && m != 0) {
+    //     b.push(m);
+    //   }
+    // }
+    // console.log(b)
+
+    // let o = parseInt(prompt("Input number: "));
+    // console.log(o)
+
+    // let c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // const result = c.filter( e => e % 4 === 0)
+    // console.log(result);
+
+    // let d = [1, 2, 3, 4 ]
+    // const result = d.map( e => e*e )
+    // console.log(result);
+
+    let e = [1, 2, 3, 4]
+    const result = e.reduce((a, b) => a * b)
+    console.log(result);
+
+
+  </script>
+  <script>
+    console.log("This is the second script tag")
+    console.error(console)
+    console.assert(100 > 10)
+    console.table(console)
+    console.warn(console)
+    console.time('a')
+    // Calculate time of code excecuted in beteen time and timeEnd
+    Array.from([1, 2, 3, 4, 5]).forEach(e => console.log(e))
+    console.timeEnd('a')
+
+    let p = prompt("Input your name")
+    p = parseInt(p)
+    let a = confirm("Do you want to write on the top?")
+
+    if (a) {
+      document.write(`<h1>${p}</h>`)
+    }
+  </script>
+</body>
+
+</html>

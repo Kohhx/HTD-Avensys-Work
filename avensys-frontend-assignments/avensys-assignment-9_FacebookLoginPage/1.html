@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=div, initial-scale=1.0" />
+    <title>Koh He Xiang</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #eff2f5;
+      }
+      .main-container {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .sub-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+      .facebook-header {
+        color: #1877f2;
+        font-weight: 800;
+        font-size: 4rem;
+      }
+      input {
+        display: block;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        border: 1px rgb(233, 233, 233) solid;
+        font-size: 1.25rem;
+        padding: 5px 10px;
+      }
+      .inner-container {
+        width: 50%;
+      }
+      .right-container {
+        text-align: center;
+        padding: 15px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .btn {
+        cursor: pointer;
+      }
+
+      .login-btn {
+        background-color: #1877f2;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 14px;
+        font-size: 1rem;
+      }
+
+      .forget-password {
+        margin-bottom: 14px;
+        color: #1877f2;
+        font-size: 1rem;
+      }
+
+      .create-btn {
+        padding: 10px;
+        background-color: rgb(66, 183, 41);
+        border-radius: 5px;
+        border: none;
+        margin-top: 14px;
+        color: white;
+        font-size: 1rem;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 14px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-decoration-color: #1877f2;
+      }
+      @media screen and (max-width: 768px) {
+        .sub-container {
+          flex-direction: column;
+        }
+        .inner-container {
+          width: 80%;
+        }
+        .right-container {
+          margin-top: 10px;
+        }
+
+        .facebook-header {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="sub-container">
+        <div class="inner-container left-container">
+          <h1 class="facebook-header">facebook</h1>
+          <h3>
+            Facebook helps you connect and share with the people in your life
+          </h3>
+        </div>
+        <div class="inner-container">
+          <form class="form-box right-container">
+            <input type="text" placeholder="Email address or phone number" />
+            <input type="text" placeholder="Password" />
+            <button class="login-btn btn">Log in</button>
+            <a href=""><h6 class="forget-password">Forgotten password?</h6></a>
+            <hr />
+            <button class="create-btn btn">Create new account</button>
+          </form>
+          <p>
+            <strong> Create </strong> a Page for a celebrity, brand or business.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

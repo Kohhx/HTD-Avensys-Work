@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container" >
+    <button onclick="alert('Hello'); let x = 10; console.log(`X is ${x}`)">Click On</button>
+  </div>
+
+  <button id="btn">Click on the Button</button>
+
+  <script>
+    let a =document.querySelector(".container");
+
+    // ANother way to add event listener + Click event
+    a.onclick = () => {
+      a.innerHTML = "<h2>Hello World</h2>";
+    }
+
+    // Setting a reference to a function
+    let y = function first(e) {
+      console.log("I am the first function");
+      console.log(e)
+    }
+
+    let z = function second(e) {
+      console.log("I am the second function");
+      console.log(e)
+      console.log(e.target)
+      console.log(e.type)
+      console.log(e.clientX, e.clientY)
+    }
+
+
+    // Add event listener
+    const btnEl = document.getElementById("btn");
+    btn.addEventListener("click", y)
+
+    btn.addEventListener("click", z)
+
+    let b = prompt("Enter the key");
+
+    // To remove an event listener, we need to have a function with the same reference
+    // SUPER IMPORTANT!!
+    // Y is a function reference, so we can remove it
+    if (b === "2") {
+      btn.removeEventListener("click", y)
+    }
+
+  </script>
+</body>
+</html>

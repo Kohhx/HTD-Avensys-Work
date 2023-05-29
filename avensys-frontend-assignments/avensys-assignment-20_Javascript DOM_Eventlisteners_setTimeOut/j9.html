@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="a">
+      <div class="b">
+        <h3>The child of div B</h3>
+      </div>
+      <h3>Heading is h3/h3>
+    </div>
+
+    <div class="b" id="id2" data-game="football" data-song="super song">Anything</div>
+
+    <script>
+      let b2 = document.getElementById("id2");
+      console.log(b2.dataset["game"])
+      console.log(b2.dataset["song"])
+
+    </script>
+  </body>
+</html>

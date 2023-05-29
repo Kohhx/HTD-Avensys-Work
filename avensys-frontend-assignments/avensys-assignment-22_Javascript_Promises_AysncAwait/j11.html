@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        console.log("I am going to get resolved");
+        setTimeout(() => {
+          // console.log("Inside the set timeout")
+          resolve(100);
+        }, 2000);
+      });
+
+      // We can attach multiple handlers to one promise
+      // Note that multiple handlers wont be passing the result among
+      // each other because they get exceuted in independently
+      p1.then((v) => console.log("This is the end of promise"));
+      p1.then((v) => {
+        console.log("The extra then function");
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(400);
+          }, 2000);
+        });
+      }).then((v) => console.log(v));
+    </script>
+  </body>
+</html>

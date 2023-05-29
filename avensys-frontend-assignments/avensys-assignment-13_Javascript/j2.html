@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Learning Javascript</h1>
+
+    <script>
+      let a = alert("Click yes to continue");
+      console.log(a);
+      let b = confirm("Click yes to continue");
+      console.log(b);
+
+      if (b === true) {
+        let c = prompt("Input something");
+        console.log(c);
+        const divEl = document.createElement("div");
+        divEl.innerHTML = c;
+        document.body.appendChild(divEl);
+      }
+
+    </script>
+  </body>
+</html>

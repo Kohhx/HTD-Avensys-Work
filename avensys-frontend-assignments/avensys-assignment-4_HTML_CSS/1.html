@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koh He Xiang 1</title>
+    <style>
+      .ahover:hover {
+        color: green;
+      }
+
+      .d {
+        display: inline;
+        background-color: green;
+      }
+
+      .e {
+        background-color: pink;
+      }
+      .ol1{
+        list-style-position: outside;
+      }
+      .ol1 > li{
+        border:solid;
+      }
+      .ol2{
+        list-style-position: inside;
+      }
+      .ol2 > li{
+        border:solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Displaying the output on the same webpage</h1>
+    <p>
+      Open the link in the same tab: <a href="1.html">Visit ABC Website..!</a>
+    </p>
+
+    <h1>Displaying the output on the same webpage but new tab</h1>
+    <p>
+      Open the link in the same tab:
+      <a target="blank" href="1.html">Visit ABC Website..!</a>
+    </p>
+
+    <h1>Use the image as the link</h1>
+    <a href=""
+      ><img src="image.jpg" width="75px" style="display: inline" alt="" /></a
+    >Click on the image to navigate
+
+    <h1>Link states</h1>
+    <p>click on the link <a href="#">ABC website</a></p>
+
+    <h1>Link states</h1>
+    <p>
+      click on the link
+      <a style="text-decoration: none" href="#">ABC website</a>
+    </p>
+
+    <h1>Link states</h1>
+    <p>click on the link <a class="ahover" href="#">ABC website</a></p>
+
+    <div class="d">Hello ABC..!</div>
+    <div class="d">Hello ABC..!</div>
+    <div class="d">Hello ABC..!</div>
+    <div class="d">Hello ABC..!</div>
+    <div class="d">Hello ABC..!</div>
+
+    <div class="e">Hello ABC..!</div>
+    <div class="e">Hello ABC..!</div>
+    <div class="e">Hello ABC..!</div>
+    <div class="e">Hello ABC..!</div>
+    <div class="e">Hello ABC..!</div>
+
+    <div><a href="#1">Jump to chapter 1</a></div>
+    <div><a href="#6">Jump to chapter 6</a></div>
+
+    <br />
+    <br />
+
+    <h1 id="1">Chapter 1</h1>
+    <p>This is chapter 1</p>
+    <h1>Chapter 2</h1>
+    <p>This is chapter 2</p>
+    <h1>Chapter 3</h1>
+    <p>This is chapter 3</p>
+    <h1>Chapter 4</h1>
+    <p>This is chapter 4</p>
+    <h1>Chapter 5</h1>
+    <p>This is chapter 5</p>
+    <h1 id="6">Chapter 6</h1>
+    <p>This is chapter 6</p>
+
+    <h1>Unordered list</h1>
+    <ul>
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ul>
+
+    <h1>Ordered list</h1>
+    <ol>
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ol>
+
+    <h1>Unordered list</h1>
+    <ul style="list-style-type:circle">
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ul>
+
+    <h1>Unordered list</h1>
+    <ul type="square">
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ul>
+
+    <h1>Unordered list</h1>
+    <ul type="none">
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ul>
+
+    <h1>Ordered list</h1>
+    <ol style="list-style-type: lower-roman">
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ol>
+
+    <h1>Ordered list</h1>
+    <ol style="list-style-type: upper-alpha">
+      <li>MongDB</li>
+      <li>Front-end</li>
+      <li>Java</li>
+    </ol>
+
+    <h1>List</h1>
+    <ol start="5">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Java</li>
+      <li>C</li>
+      <li>C++</li>
+    </ol>
+
+    <h1>List</h1>
+    <ol start="5">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Java</li>
+      <li>C</li>
+      <li value="99">C++</li>
+      <li>Data Science</li>
+      <li>Artificial Intelligence</li>
+    </ol>
+
+    <h1>List-style-position</h1>
+    <ol class="ol1">
+      <li>MongoDB</li>
+      <li>Javascript</li>
+      <li>Java</li>
+    </ol>
+
+    <h1>List-style-position</h1>
+    <ol class="ol2">
+      <li>MongoDB</li>
+      <li>Javascript</li>
+      <li>Java</li>
+    </ol>
+  </body>
+</html>

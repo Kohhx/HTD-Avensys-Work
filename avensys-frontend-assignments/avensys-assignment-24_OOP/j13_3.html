@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=scrip, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Animal {
+      constructor(name) {
+        // If we are setting javascrip get and set, we need to use _name.
+        // An underscore before the variable name.
+        this._name = name;
+      }
+
+      walk () {
+        console.log(`${this._name} is walking`);
+      }
+
+      fly () {
+        console.log(`${this._name} is flying`);
+      }
+
+      // Static method that belong to class Animal
+      static capitalise (name) {
+        return name.charAt(0).toUpperCase() + name.slice(1);
+      }
+
+      getName() {
+        return this._name;
+      }
+
+      // Getter and setter
+      get name() {
+        console.log("javascript is calling the getter")
+        return this._name;
+      }
+      set name(name) {
+        this._name = name;
+      }
+    }
+
+    class Rabbit extends Animal {
+      eat () {
+        console.log(`${this._name} is eating carrot`);
+      }
+    }
+
+    let r = new Rabbit("roger");
+    let j = new Animal(Animal.capitalise("jack"));
+    j.walk();
+
+    // Javascript getter and setter conventions
+    console.log(j.name)
+    j.name = ("jill");
+    j.fly();
+
+    // Check if a is a instance of Animal
+    console.log(j instanceof Animal);
+    console.log(r instanceof Rabbit);
+    console.log(r instanceof Animal);
+  </script>
+</body>
+</html>

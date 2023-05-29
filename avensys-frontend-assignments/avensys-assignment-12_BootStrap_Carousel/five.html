@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .b {
+        color: green;
+      }
+
+      .a{
+        color: red;
+      }
+      .c{
+        background-color: lightcoral;
+      }
+      .d{
+        background-color: lightblue;
+        font-size: 3rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        letter-spacing: 5px;
+      }
+
+      #i{
+        color: red;
+        text-align: center;
+      }
+
+      .i{
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- marquee tag causes the text to move in the given path on a webpage -->
+    <marquee
+      behavior="alternate"
+      direction="right"
+      height="150px"
+      width="150px"
+      scrollamount="100"
+      >hello</marquee
+    >
+    <marquee
+      style="position: absolute"
+      direction="left"
+      height="150px"
+      width="150px"
+      >hello</marquee
+    >
+    <marquee behavior="" direction="up" height="150px" width="150px"
+      >hello</marquee
+    >
+    <marquee behavior="" direction="down" height="150px" width="150px"
+      >hello</marquee
+    >
+    <marquee
+      vspace="20%"
+      hspace="20%"
+      bgcolor="red"
+      loop="2"
+      behavior="alternate"
+      direction="up"
+      width="600px"
+      height="300px"
+      ><img width="20%" src="./Profile-Pic.jpg" alt=""
+    /></marquee>
+
+    <p class="b c">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+      possimus sit exercitationem aperiam quisquam necessitatibus illo, in
+      magnam facere dolore! Reiciendis, non. Fugit officiis voluptas ut error.
+    </p>
+
+    <h1 class="c">Heading 1</h1>
+
+    <p class="b">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+      possimus sit exercitationem aperiam quisquam necessitatibus illo, in
+      magnam facere dolore! Reiciendis, non. Fugit officiis voluptas ut error.
+    </p>
+
+    <h2>Heading 2</h2>
+
+    <p class="a">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+      possimus sit exercitationem aperiam quisquam necessitatibus illo, in
+      magnam facere dolore! Reiciendis, non. Fugit officiis voluptas ut error.
+    </p>
+
+    <h3>Heading 3</h3>
+
+    <p class="a d">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+      possimus sit exercitationem aperiam quisquam necessitatibus illo, in
+      magnam facere dolore! Reiciendis, non. Fugit officiis voluptas ut error.
+    </p>
+
+
+    <!-- id has higher specificity as compared to class -->
+    <h1 class="i" id="i">Heading that uses ID selector</h1>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      setTimeout(() => {
+        console.log("Hacking the wifi... process going on");
+      }, 1000);
+
+      // Use a try catch to prevent stopping of program
+      try {
+        // console.log(abcd);
+      } catch (error) {
+        console.log(error.message);
+      }
+
+      // Try catch cannot catch a error in a setTimeout
+      // Set timeout is out of flow of the program
+      // Thr try catch assume the excution is fine and continue with
+      // the program flow
+      try {
+        // console.log(abcd);
+        setTimeout(() => {
+          try {
+            console.log(abcd)
+          } catch (error) {
+            console.log("Error finally caught");
+          }
+        }, 3000);
+        console.log("Going pass... process going on")
+      } catch (error) {
+        console.log(error.message);
+      }
+      setTimeout(() => {
+        console.log("Fetching the details... process going on");
+        // console.log(abcd);
+      }, 2000);
+
+      setTimeout(() => {
+        console.log("Hacking friends account... process going on");
+      }, 3000);
+
+      setTimeout(() => {
+        console.log("All details hacked succesfully");
+      }, 4000);
+    </script>
+  </body>
+</html>

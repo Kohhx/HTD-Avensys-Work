@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .a{
+        color: green;
+      }
+      .y{
+        background-color: yellow;
+      }
+      .r{
+        background-color: red;
+      }
+      .b{
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="first" class="r a">
+      <span>Hello, how are you?</span>
+    </div>
+
+    <button class="btn">Toggle</button>
+
+    <script>
+      const divEl = document.getElementById("first");
+      console.log(divEl.className)
+      console.log(divEl.classList)
+      divEl.classList.remove("r")
+      console.log(divEl.classList)
+      divEl.classList.add("b");
+      console.log(divEl.classList)
+      console.log(divEl.classList.length)
+      divEl.classList.toggle("b");
+      console.log(divEl.classList)
+
+      const btnEl = document.querySelector(".btn");
+      btnEl.addEventListener("click", () => {
+        divEl.classList.toggle("b");
+      });
+    </script>
+  </body>
+</html>

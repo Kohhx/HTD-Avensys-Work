@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = {
+        name: "kohhx",
+        language: "English",
+        run: () => {
+          console.log("I am running from a")
+        }
+      };
+
+      let p = {
+        run: () => {
+          console.log("I am running from p");
+        },
+        run2: "Hello i am from run 2",
+      };
+
+
+      p.__proto__={
+        namep: "p12345"
+      }
+
+      // Prototype of p is also added to a
+      a.__proto__ = p;
+      // a.prototype = p;
+      p.run();
+      a.run(); // This will run the run function from a , if run is not found then javascript will look into the prototype
+      console.log(a);
+      console.log(a.namep);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div  class="create">
+    <h1 id="h1">Heading</h1>
+    <h1 id="h1">Heading2</h1>
+    <h1 id="h1">Heading3</h1>
+  </div>
+
+  <script>
+    const h1El = document.getElementById("h1");
+    const createEl = document.querySelector(".create");
+    createEl.style.border = "solid 3px red"
+    const newDivEl = document.createElement("div")
+    newDivEl.style.border = "solid 3px blue"
+    const newEl = document.createElement("h1")
+    const newText = document.createTextNode("Content inside new div")
+    newEl.appendChild(newText)
+    newDivEl.appendChild(newEl)
+    // createEl.insertBefore(newDivEl,h1El)
+    createEl.append(newDivEl)
+    // createEl.appendChild(newDivEl)
+    // createEl.removeChild(newEl);
+    // newEl.innerHTML = "This is a new paragraph tag"
+    // createEl.appendChild(newEl)
+    // createEl.insertAdjacentElement("before",newEl)
+
+    const newDivEl2 = document.createElement("div")
+    newDivEl2.innerHTML = "<h1>Content inside new div 22</h1>"
+
+    const imgSwap = document.createElement("img");
+    imgSwap.setAttribute("src","a.jpeg")
+    imgSwap.setAttribute("height","100px")
+    imgSwap.setAttribute("width","100px")
+    createEl.replaceChild(imgSwap, newDivEl)
+    createEl.removeChild(imgSwap)
+  </script>
+</body>
+</html>

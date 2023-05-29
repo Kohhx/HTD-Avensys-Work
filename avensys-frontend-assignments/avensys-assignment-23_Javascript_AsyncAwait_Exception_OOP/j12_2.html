@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let bodyEl = document.querySelector("body");
+
+      const createScript = (src) => {
+        return new Promise((resolve, reject) => {
+          let script = document.createElement("script");
+          script.src = src;
+          bodyEl.appendChild(script);
+          script.onload = () => {
+            resolve(src);
+          };
+          script.onerror = () => {
+            reject(new Error("An error occured"));
+          };
+        });
+      };
+
+      //  console.log("Hi")
+      //  createScript(
+      //    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      //  )
+      //    .then((src) => alert("script loaded successfully"))
+      //    .catch((error) => alert(error.message));
+
+      //  const loadScript = async (src) => {
+      //   try {
+      //     let s = await createScript(src);
+      //     alert("script loaded successfully");
+      //   } catch (error) {
+      //     alert("An error has occured!");
+      //   }
+      //  };
+
+      //  loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js");
+
+      //  let p1 = new Promise((resolve, reject) => {
+      //    setTimeout(() => {
+      //      reject(new Error("An error occured"))
+      //    }, 5000);
+      //  });
+
+      //  const loadProg1 = async () => {
+      //    try {
+      //      await p1;
+      //    } catch (error) {
+      //      console.log(error.message);
+      //    }
+      //  };
+
+      //  loadProg1();
+
+      let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Value 1");
+        }, 1000);
+      });
+
+      let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Value 2");
+        }, 2000);
+      });
+
+      let p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Value 3");
+        }, 3000);
+      });
+
+      const loadProg2 = async () => {
+        let results = await Promise.all([p1, p2, p3]);
+        let start = 2000;
+        results.forEach((result) => {
+          start += 1000;
+          setTimeout(() => {
+            console.log(result);
+          }, start);
+        })
+      };
+
+      loadProg2();
+    </script>
+  </body>
+</html>

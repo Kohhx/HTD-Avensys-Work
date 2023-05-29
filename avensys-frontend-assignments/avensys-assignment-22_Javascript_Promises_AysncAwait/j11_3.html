@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let country1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("28 deg");
+        }, 2000);
+      });
+
+      let country2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("31 deg");
+        }, 3000);
+      });
+
+      // Async function syntax
+      async function name(params) {}
+
+      // Async await arrow function syntax
+      const h = async () => {
+        c1Temp = await country1;
+        console.log(c1Temp);
+        c2Temp = await country2;
+        console.log(c2Temp);
+        return [c1Temp, c2Temp]
+      };
+
+      let c = () => {
+        console.log("Hey this output is from C")
+      }
+
+      // console.log(h());
+      // c();
+
+      let funall = async() => {
+        console.log("Reporting")
+        let z = await c();
+        let a = await h();
+        let b = await c();
+      }
+
+      funall();
+
+    </script>
+  </body>
+</html>

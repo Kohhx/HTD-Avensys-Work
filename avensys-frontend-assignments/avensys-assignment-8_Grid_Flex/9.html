@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koh He Xiang</title>
+    <style>
+      .container {
+        display: flex;
+        background-color: white;
+        /* padding: 5px; */
+        border:3px solid rgb(108, 12, 12);
+        /* flex-direction: column; */
+        /* gap: 10px; */
+        /* justify-content: space-evenly; */
+        /* align-items: center;
+        /* flex-wrap: wrap; */
+        flex-wrap: wrap;
+      }
+      .item {
+        padding: 25px;
+        font-size: 20px;
+        text-align: center;
+      }
+      .item1 {
+        /* flex-grow: 1;s */
+        /* width:100%; */
+        order: 5;
+      }
+      .item2 {
+        order: 6;
+        width:500px;
+      }
+      .item3 {
+        /* align-self: center; */
+        /* margin-top:100px; */
+        /* align-self: flex-end; */
+        /* flex-grow: 1; */
+        /* width:100%; */
+        order: 7;
+      }
+      .item4 {
+        order: 1;
+      }
+      .item5 {
+        /* width:100%; */
+        order: 2;
+
+      }
+      .item6 {
+        /* width:100%; */
+        order: 3;
+      }
+      .space{
+        flex-basis: 100%;
+        order: 4;
+        /* height: 0; */
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item1" style="background-color: red">1</div>
+      <div class="item item2" style="background-color: green">2</div>
+      <div class="item item3" style="background-color: orange">3</div>
+      <div class="space"></div>
+      <div class="item item4" style="background-color: yellowgreen">4</div>
+      <div class="item item5" style="background-color: lightblue">5</div>
+      <div class="item item6" style="background-color: blue">6</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div  class="create">
+    <h1 id="h1">Heading</h1>
+    <h1 id="h1">Heading2</h1>
+    <h1 id="h1">Heading3</h1>
+  </div>
+
+  <input type="button" value="submit" onclick="c()"></input>
+
+  <button id="mybtn">Try me</button>
+
+  <h2 id="demo"></h2>
+  <script>
+     const createEl = document.querySelector(".create");
+    //  function c() {
+    //     confirm("Are you sure?")
+    //  }
+     const c = () => confirm("Are you sure?")
+     const a = () => alert("Are you sure?")
+
+     let btnEl = document.getElementById("mybtn");
+    //  btnEl.addEventListener("click", c)
+    //  btnEl.addEventListener("click", a)
+
+    function myFunction(a,b){
+       document.getElementById("demo").innerHTML = a * b;
+    };
+
+     let p = 5
+     let p2 = 7
+     btnEl.addEventListener("click", () => {
+        myFunction(p, p2)
+     })
+  </script>
+</body>
+</html>

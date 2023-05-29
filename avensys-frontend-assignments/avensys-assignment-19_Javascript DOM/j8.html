@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="a">
+      <h6>First !</h6>
+      <div class="b">
+        <h3>The child of the div B</h3>
+      </div>
+      <h1>The heading</h1>
+      <h3>Thi is a H3 Heading</h3>
+    </div>
+
+    <!-- // Erronous error no closing. Browser auto correct for you -->
+    <!-- <h3>Heading using h3 -->
+
+    <script>
+      let a  =document.body.childNodes
+      console.log(a[7])
+      let b = Array.from(document.body.childNodes)
+      console.log(b)
+
+      // Getting the type of node and array
+      console.log(typeof a)
+      console.log(typeof b)
+
+      // Getting child nodes and element
+      let c = document.getElementsByTagName("body")[0]
+      console.log(c.firstChild)
+      console.log(c.firstElementChild)
+      console.log(c.lastChild)
+      console.log(c.lastElementChild)
+
+      // Getting Parent nodes and element
+      let d = document.getElementsByClassName("b")[0]
+      console.log(d.parentNode);
+      console.log(d.parentElement);
+
+      // Get next / prev nodes and element
+      console.log(d.nextSibling);
+      console.log(d.nextElementSibling);
+      console.log(d.previousSibling);
+      console.log(d.previousElementSibling);
+    </script>
+
+
+  </body>
+</html>

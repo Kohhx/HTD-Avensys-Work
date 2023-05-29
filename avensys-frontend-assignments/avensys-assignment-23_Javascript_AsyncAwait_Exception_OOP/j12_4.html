@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Rform {
+
+        constructor(name, tickNum, address) {
+          this.name = name;
+          this.tickNum = tickNum;
+          this.address = address;
+        }
+
+        // fill (name, tickNum) {
+        //   this.name = name;
+        //   this.tickNum = tickNum;
+        // }
+
+        submit() {
+          console.log(`form submitted by ${this.name} with ticket number ${this.tickNum} from ${this.address}` );
+        }
+        cancel () {
+          this.tickNum = 0;
+          console.log(`form cancelled by ${this.name} with ticket number ${this.tickNum}  from ${this.address}`);
+        console.log("Ticket number is now " + this.tickNum);
+        }
+      }
+
+      let koh = new Rform("Koh",12345, "forbidden leaf");
+      // koh.fill("Koh",12345);
+      let leon = new Rform("leon",9876, "Singapore");
+      // leon.fill("leon",9876);
+
+      koh.submit();
+      leon.submit();
+      leon.cancel();
+    </script>
+  </body>
+</html>

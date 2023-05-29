@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        constructor(name, color) {
+          this.name = name;
+          this.color = color;
+        }
+
+        run() {
+          console.log(`${this.name} is running in the jungle`);
+        }
+        shout() {
+          console.log(`${this.name} is shouting in the jungle`);
+        }
+      }
+
+      class Monkey extends Animal {
+        eatBanana (){
+          console.log(`${this.name} is eating banana`);
+        }
+      }
+
+      let a = new Animal("Kyle", "Brown");
+      let b = new Monkey("Neo", "Orange")
+
+      a.shout();
+
+      b.eatBanana();
+
+    </script>
+  </body>
+</html>

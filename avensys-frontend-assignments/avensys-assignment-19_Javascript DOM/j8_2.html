@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="a">
+      <div class="b" id="id1">This is element 1span
+        <span data-myspan="mydata" class="c">This is span</span>
+      </div>
+    </div>
+
+    <div class="b" id="id2">This is element 2</div>
+
+    <script>
+      let id1 = document.getElementById("id1");
+      let id2 = document.getElementById("id2");
+      let cEl = document.getElementsByClassName("c")[0];
+      console.log(id1);
+
+      // Finding matches, nearest parent  and contains for children
+      console.log(id1.matches(".bc"));
+
+      console.log(id1.closest(".a"));
+      console.log(id1.closest(".c"));
+
+      console.log(id1.contains(id2));
+      console.log(id1.contains(cEl));
+
+
+      // Attribute selection and manipulation
+      let spanEl = document.querySelector("[data-myspan]");
+      // let spanEl = document.querySelector("[data-myspan=mydata]");
+      console.log(spanEl)
+      console.log(cEl.dataset["myspan"]);
+      console.log(cEl.dataset.myspan);
+    </script>
+  </body>
+</html>

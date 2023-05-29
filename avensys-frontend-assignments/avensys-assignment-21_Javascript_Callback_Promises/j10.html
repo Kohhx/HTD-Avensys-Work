@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Syncronous coding
+      // let a = prompt("first line")
+      // let b = prompt("second line")
+      // let c = prompt("third line")
+      // document.write("last line")
+
+      //Async coding Example
+      // console.log("start");
+      // setTimeout(() => {
+      //   console.log("This set time out");
+      // }, 3000);
+      // console.log("end");
+
+      // Callback function
+      let bodyEl = document.querySelector("body");
+      bodyEl.style.backgroundColor = "yellow";
+      function createScript(src, callback) {
+        let script = document.createElement("script");
+        script.src = src;
+        script.onload = () => {
+          console.log("Loading successful");
+          callback(null, src);
+        };
+        script.onerror = () => {
+          console.log("There is an error!");
+          callback(new Error("The address got an error"));
+        };
+        bodyEl.appendChild(script);
+      }
+
+      createScript(
+        "https://dn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js",
+        hello
+      );
+
+      function hello(error, src) {
+        if (error) {
+          alert(error);
+        } else {
+          alert("Hello world: " + src);
+        }
+      }
+    </script>
+  </body>
+</html>

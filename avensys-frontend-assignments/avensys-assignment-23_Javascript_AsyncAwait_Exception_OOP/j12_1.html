@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Error object
+      try {
+        throw new SyntaxError("This is syntax error");
+        throw new ReferenceError("This is refererence error");
+        throw new TypeError("This type error");
+        throw new Error("This is HX error");
+      } catch (e) {
+        console.dir(e);
+        console.log(e.name);
+        console.log(e.message);
+        console.log(e.stack);
+      }
+
+    // Finally alway runs even when there is an error in try or catch.
+    // Finally will run even if there is a return statement inside try or catch
+let f = () => {
+      try {
+        let b = 100;
+        return;
+        let age = prompt("Enter your age");
+        if (age > 100) {
+          throw new ReferenceError("Age cannot be greater than 100");
+        }
+      } catch (e) {
+        console.log(e.name);
+        console.log(e.message);
+        console.log(e.stack);
+      } finally {
+        console.log("Finally block")
+      }
+    }
+
+    f();
+    </script>
+  </body>
+</html>

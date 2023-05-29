@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="abcd"></div>
+
+    <script>
+      document.write("Hello World");
+      // Set Timeout example
+
+      let p = prompt("Enter the key");
+      let abcd = document.getElementById("abcd");
+      if (p === "z") {
+        let a = setTimeout(() => {
+          abcd.style.width = "100px";
+          abcd.style.height = "100px";
+          abcd.style.backgroundColor = "yellow";
+          return clearTimeout(a);
+        }, 4000);
+      }
+
+      // if (p === "z") {
+      //   clearTimeout(a);
+      // }
+      // console.log(a) // id of timeout
+      // clearTimeout(a) // clear timeout
+
+      // Interval
+      let i = 1;
+      let b = setInterval(() => {
+        if (i <= 10) {
+          console.log(i);
+          i++;
+        } else {
+          clearInterval(b);
+        }
+      }, 100);
+
+      const sum = (a,b) => console.log("The sum is " + (a + b))
+
+      // if pass a function as a arugment, it should not have paranthesis. The arguments for the
+      //  should be input from index 3 onwards
+      setTimeout(sum, 1000, 5, 6);
+    </script>
+  </body>
+</html>
