@@ -1,0 +1,15 @@
+<h1><u>Product (Parameterized Routes & Queries)</u></h1>
+<h2>Product ID: {{ id }}</h2>
+<h2>Product Discount: {{ discount | percent }}</h2>
+<h2>Page number: {{ query }}</h2>
+<h2>Order: {{ order }}</h2>
+<button (click)="queryMe()">Query Me</button>
+
+<br>
+<br>
+<h1>All Query display</h1>
+<p>{{ allQuery | json }}</p>
+
+<p>Car: {{ car }}</p>
+<p>Bike: {{ bike }}</p>
+<p>Bicycle: {{ bicycle }}</p>
