@@ -19,6 +19,8 @@ import { Comp0Component } from './comp0/comp0.component';
 import { Comp3Component } from './comp3/comp3.component';
 import { Comp4Component } from './comp4/comp4.component';
 import { ProductComponent } from './product/product.component';
+import { Pg404Component } from './pg404/pg404.component';
+import { Form1Component } from './form1/form1.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ProductComponent } from './product/product.component';
     Comp3Component,
     Comp4Component,
     ProductComponent,
+    Pg404Component,
+    Form1Component,
   ],
   imports: [
     BrowserModule,

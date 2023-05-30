@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit{
+  isAllowed = true;
   id: string | null = "";
   query: string | null = "";
   discount: string | null = "";

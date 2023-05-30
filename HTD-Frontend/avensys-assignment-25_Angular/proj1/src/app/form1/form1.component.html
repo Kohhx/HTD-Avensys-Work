@@ -1,0 +1,10 @@
+<h1>Template Driven Form</h1>
+
+<form #addForm="ngForm" (submit)="fun1(addForm)">
+  <label for="">First Name: </label>
+  <input [(ngModel)]="firstName" type="text" name="firstName" [value]="firstName" />
+  <input [(ngModel)]="checkbox" type="checkbox" name="checkbox" />
+  <button type="submit">Submit</button>
+</form>
+{{ firstName }}
+{{ checkbox }}
