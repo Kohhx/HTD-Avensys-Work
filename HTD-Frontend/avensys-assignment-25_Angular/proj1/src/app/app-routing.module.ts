@@ -14,12 +14,14 @@ import { guard3Guard } from './guard3.guard';
 import { pay2guardGuard } from './pay2guard.guard';
 import { deactiveGuard } from './deactive.guard';
 import { Form1Component } from './form1/form1.component';
+import { Form2Component } from './form2/form2.component';
 
 const routes: Routes = [
   { path: 'comp0', component: Comp0Component },
   // { path: "comp1", component: Comp1Component, outlet: "channel1"},
   // { path: "comp2", component: Comp2Component, outlet: "channel2" },
   { path: 'form1', component: Form1Component },
+  { path: 'form2', component: Form2Component },
   {
     path: 'main',
     component: AppComponent,

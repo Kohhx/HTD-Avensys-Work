@@ -1,0 +1,13 @@
+<h1>This is a reactive form</h1>
+<form [formGroup]="addForm" (submit)="onSubmit()">
+  <input type="text" formControlName="firstName"> <br>
+  <input type="text" formControlName="type"> <br>
+  <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
+  <br>
+  <br>
+  <button [disabled]="addForm.invalid">Submit</button>
+  <button (click)="addVal()">Get form values</button>
+  <button (click)="setForm()">SET</button>
+  <button (click)="patchForm()">PATCH</button>
+  <button (click)="resetForm()">RESET</button>
+</form>

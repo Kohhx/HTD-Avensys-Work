@@ -2,9 +2,47 @@
 
 <form #addForm="ngForm" (submit)="fun1(addForm)">
   <label for="">First Name: </label>
-  <input [(ngModel)]="firstName" type="text" name="firstName" [value]="firstName" />
-  <input [(ngModel)]="checkbox" type="checkbox" name="checkbox" />
-  <button type="submit">Submit</button>
+  <input
+    [(ngModel)]="firstName"
+    type="text"
+    name="firstName"
+    [value]="firstName"
+    required
+    minlength="10"
+  />
+  <div>
+    <label for="">Checkbox</label
+    ><input required [(ngModel)]="checkbox" type="checkbox" name="checkbox" />
+  </div>
+  <div>
+    <label for="">Selection</label>
+    <select name="dropdown" required [(ngModel)]="dropdown">
+      <option value="Option 1">Option 1</option>
+      <option value="Option 2">Option 2</option>
+      <option value="Option 3">Option 3</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="">Normal input text</label>
+    <input maxlength="10" required type="text" [(ngModel)]="val1" name="val1" />
+  </div>
+
+  <div>
+    <label for="">Text Area</label><br>
+    <textarea
+      name="textarea"
+      [(ngModel)]="textArea"
+      cols="30"
+      rows="10"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" [disabled]="!addForm.valid">Submit</button>
+  <button (click)="addForm.resetForm()">Reset</button>
+  <!-- <button (click)="resetForm(addForm)">Reset</button> -->
+  <button (click)="setForm(addForm)">SET</button>
 </form>
 {{ firstName }}
 {{ checkbox }}
