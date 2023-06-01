@@ -22,18 +22,18 @@ public class Employee {
 
     @Email(message = "Email should be valid")
     @NotNull(message = "Email cannot be empty")
-    @Column(nullable = false, unique = true)
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
     @Min(value = 10, message = "Age should not be less than 10")
     @Max(value = 100, message = "Age should not be greater than 100")
-    @Column(nullable = false)
+    @Column(name="age", nullable = false)
     private int age;
 
     @Size(min = 5, max = 200, message
             = "Address between 5 and 200 characters")
     @NotNull(message = "Address cannot be empty")
-    @Column(nullable = false)
+    @Column(name="address", nullable = false)
     private String address;
 
     public Employee() {
