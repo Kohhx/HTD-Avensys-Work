@@ -25,11 +25,11 @@ public class EmployeeController {
         return "listEmployees";
     }
 
-    @RequestMapping(value = "add-employees", method = RequestMethod.GET)
+    @RequestMapping(value = "add-employee", method = RequestMethod.GET)
     public String newEmployeePage (ModelMap model) {
         Employee employee = new Employee();
         model.put("employee", employee);
-        return "listEmployees";
+        return "employee";
     }
 
 

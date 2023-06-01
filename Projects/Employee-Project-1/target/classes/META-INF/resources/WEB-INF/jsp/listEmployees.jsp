@@ -16,14 +16,14 @@
 <div class="container">
   <div>Hey <b>${username}</b>, Welcome to the Employee List</div>
   <hr>
-<%--  <a href="add-employee" class="btn btn-success">--%>
-<%--    Add Employee--%>
-<%--  </a>--%>
+  <a href="add-employee" class="btn btn-success">
+    Add Employee
+  </a>
   <table class="table">
     <thead>
     <tr>
       <th>Id</th>
-      <th>Username</th>
+      <th>Name</th>
       <th>Age</th>
       <th>Address</th>
     </tr>
