@@ -10,6 +10,7 @@
     <style>
         .error {
             color: red;
+            font-style: italic;
         }
     </style>
 </head>
@@ -21,28 +22,28 @@
             <div class="mb-3 w-100">
                 <label class="form-label">First Name</label>
                 <form:input type="text" class="form-control" id="firstName" path="firstName" required="required"/>
-                    <%--            <form:errors path="name" cssClass="error"/>--%>
+                                <form:errors path="firstName" cssClass="error"/>
             </div>
             <div class="mb-3 w-100">
                 <label class="form-label">Last Name</label>
                 <form:input type="text" class="form-control" id="lastName" path="lastName" required="required"/>
-                    <%--            <form:errors path="name" cssClass="error"/>--%>
+                                <form:errors path="lastName" cssClass="error"/>
             </div>
         </div>
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <form:input type="email" class="form-control" id="email" path="email" required="required"/>
-                <%--            <form:errors path="age" cssClass="error"/>--%>
+            <form:input type="text" class="form-control" id="email" path="email" />
+                            <form:errors path="email" cssClass="error"/>
         </div>
         <div class="mb-3">
             <label class="form-label">Age</label>
             <form:input type="number" class="form-control" id="name" path="age" required="required"/>
-                <%--            <form:errors path="age" cssClass="error"/>--%>
+                            <form:errors path="age" cssClass="error"/>
         </div>
         <div class="mb-3">
             <label class="form-label">Address</label>
             <form:input type="text" class="form-control" id="address" path="address" required="required"/>
-                <%--            <form:errors path="address" cssClass="error"/>--%>
+                            <form:errors path="address" cssClass="error"/>
         </div>
 
         <%--    Hidden input--%>
