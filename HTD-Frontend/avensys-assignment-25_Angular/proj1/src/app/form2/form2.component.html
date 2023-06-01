@@ -1,13 +1,79 @@
 <h1>This is a reactive form</h1>
 <form [formGroup]="addForm" (submit)="onSubmit()">
-  <input type="text" formControlName="firstName"> <br>
-  <input type="text" formControlName="type"> <br>
-  <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
-  <br>
-  <br>
+  <table>
+    <tr>
+      <input type="text" formControlName="firstName" />
+      <br />
+      <div
+        style="color: red"
+        *ngIf="
+          addForm.get('firstName')?.hasError('required') &&
+          addForm.get('firstName')?.touched
+        "
+      >
+        Need to fill the entry
+      </div>
+      <div
+        style="color: orange"
+        *ngIf="
+          addForm.get('firstName')?.hasError('minlength') &&
+          addForm.get('firstName')?.touched
+        "
+      >
+        Should have min length of 3 chars
+      </div>
+      <span
+        style="color: red"
+        *ngIf="
+          addForm.get('firstName')?.hasError('maxlength') &&
+          addForm.get('firstName')?.touched
+        "
+      >
+        Should have max length of 10 chars
+      </span>
+    </tr>
+    <tr>
+      <input type="text" formControlName="type" />
+      <br />
+    </tr>
+
+    <tr>
+      <textarea
+        formControlName="description"
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </tr>
+
+    <tr>
+      <div formArrayName="users">
+        <div *ngFor="let c of userFormArray['controls']; let i = index">
+          <input type="text" [formControlName]="i" />
+        </div>
+      </div>
+    </tr>
+
+    <div formArrayName="users2">
+      <div *ngFor="let c of user2FormArray['controls'];let i  = index" [formGroupName]="i">
+        <input type="text" formControlName="name">
+        <input type="text" formControlName="marks" (blur)="assign(i)">
+        <input type="text" formControlName="branch">
+        <button (click)="removeElement(i)">Delete form elements</button>
+        <!-- <button (click)="assign(i)">Assign</button> -->
+      </div>
+    </div>
+  </table>
+
+  <br />
+  <br />
   <button [disabled]="addForm.invalid">Submit</button>
   <button (click)="addVal()">Get form values</button>
   <button (click)="setForm()">SET</button>
   <button (click)="patchForm()">PATCH</button>
   <button (click)="resetForm()">RESET</button>
+
+  <button (click)="addUser()">Add form elements</button>
+
+
 </form>

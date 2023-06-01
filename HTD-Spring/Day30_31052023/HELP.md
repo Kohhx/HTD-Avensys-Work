@@ -18,3 +18,9 @@ The following guides illustrate how to use some features concretely:
 
 /src/main/resources/META-INF/resources/WEB-INF/jsp/hello.jsp
 
+To Add validations
+--------------------------
+1) Need to add Spring boot starter validation in pom.xml
+2) Command Bean (From backing object) - 2 way binding (todo.jsp & todoController)
+3) Add validation to Bean - Todo.java
+4) Display validation errors

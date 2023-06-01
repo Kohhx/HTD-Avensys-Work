@@ -15,6 +15,7 @@ import { pay2guardGuard } from './pay2guard.guard';
 import { deactiveGuard } from './deactive.guard';
 import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
+import { guardMatchGuard } from './guard-match.guard';
 
 const routes: Routes = [
   { path: 'comp0', component: Comp0Component },
@@ -61,7 +62,9 @@ const routes: Routes = [
   },
   {
     path: 'pay2',
-    canLoad: [pay2guardGuard],
+    // canLoad: [guardMatchGuard],
+    canMatch: [guardMatchGuard],
+    // canActivate: [guard2Guard],
     loadChildren: () => import('./pay2/pay2.module').then((m) => m.Pay2Module),
   },
   { path: '**', component: Pg404Component }, // Wildcard route for a 404 page
