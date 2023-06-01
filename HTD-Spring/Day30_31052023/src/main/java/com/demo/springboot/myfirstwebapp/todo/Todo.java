@@ -1,11 +1,16 @@
 package com.demo.springboot.myfirstwebapp.todo;
 
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class Todo {
     private int id;
     private String userName;
+
+    @Size(min=10, message="Description must be at least 10 Chars")
     private String description;
+
     private LocalDate targetDate;
     private boolean done;
 
