@@ -20,15 +20,20 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
 
 
     @Override
+    public void addEmployee(Employee employee) {
+        employees.add(new Employee(++employeeId, employee.getName(), employee.getAge(), employee.getAddress()));
+    }
+
+    @Override
     public List<Employee> getAllEmployees() {
         return employees.stream()
-                .sorted((o1,o2) -> o1.getId() - o2.getId())
+                .sorted((o1, o2) -> o1.getId() - o2.getId())
                 .collect(Collectors.toList());
     }
 
     @Override
     public Employee getEmployeeById(int id) {
-        return employees.stream().filter( employee -> employee.getId() == id).findFirst().get();
+        return employees.stream().filter(employee -> employee.getId() == id).findFirst().get();
     }
 
     @Override
@@ -41,7 +46,8 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
         if (deleteEmployeeById(employee.getId())) {
             employees.add(employee);
             return true;
-        };
+        }
+        ;
         return false;
     }
 }

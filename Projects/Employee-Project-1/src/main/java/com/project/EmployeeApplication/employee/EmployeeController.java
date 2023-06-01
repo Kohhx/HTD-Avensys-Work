@@ -32,5 +32,13 @@ public class EmployeeController {
         return "employee";
     }
 
+    @RequestMapping(value = "add-employee", method = RequestMethod.POST)
+    public String createNewEmployee (ModelMap model, Employee employee) {
+        employeeService.addEmployee(employee);
+        return "redirect:list-employees";
+    }
+
+    
+
 
 }
