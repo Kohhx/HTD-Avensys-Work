@@ -25,6 +25,7 @@
       <th>Id</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Email</th>
       <th>Age</th>
       <th>Address</th>
     </tr>
@@ -35,6 +36,7 @@
         <td>${employee.id}</td>
         <td>${employee.firstName}</td>
         <td>${employee.lastName}</td>
+        <td>${employee.email}</td>
         <td>${employee.age}</td>
         <td>${employee.address}</td>
         <td>

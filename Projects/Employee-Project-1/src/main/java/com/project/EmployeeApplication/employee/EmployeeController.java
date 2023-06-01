@@ -30,6 +30,8 @@ public class EmployeeController {
     public String newEmployeePage(ModelMap model) {
         Employee employee = new Employee();
         model.put("employee", employee);
+        model.put("type", "create");
+        model.put("title", "Create New Employee");
         return "employee";
     }
 
@@ -42,6 +44,21 @@ public class EmployeeController {
     @RequestMapping(value = "delete-employee")
     public String deleteEmployee(@RequestParam("id") int employeeId) {
         employeeService.deleteEmployeeById(employeeId);
+        return "redirect:list-employees";
+    }
+
+    @RequestMapping(value = "update-employee", method = RequestMethod.GET)
+    public String updateEmployeePage(@RequestParam("id") int employeeId, ModelMap model) {
+        Employee employee  = employeeService.getEmployeeById(employeeId);
+        model.put("employee", employee);
+        model.put("type", "update");
+        model.put("title", "Update Employee");
+        return "employee";
+    }
+
+    @RequestMapping(value = "update-employee", method = RequestMethod.POST)
+    public String updateEmployeePage(ModelMap model, Employee employee ) {
+        employeeService.updateEmployeeById(employee);
         return "redirect:list-employees";
     }
 
