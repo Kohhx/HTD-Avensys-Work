@@ -23,7 +23,8 @@
     <thead>
     <tr>
       <th>Id</th>
-      <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Age</th>
       <th>Address</th>
     </tr>
@@ -32,15 +33,16 @@
     <c:forEach items="${employees}" var="employee">
       <tr>
         <td>${employee.id}</td>
-        <td>${employee.name}</td>
+        <td>${employee.firstName}</td>
+        <td>${employee.lastName}</td>
         <td>${employee.age}</td>
         <td>${employee.address}</td>
-<%--        <td>--%>
-<%--          <a href="delete-todo?id=${todo.id}" class="btn btn-danger">Delete</a>--%>
-<%--        </td>--%>
-<%--        <td>--%>
-<%--          <a href="update-todo?id=${todo.id}" class="btn btn-warning">Update</a>--%>
-<%--        </td>--%>
+        <td>
+          <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
+        </td>
+        <td>
+          <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
+        </td>
       </tr>
     </c:forEach>
     </tbody>

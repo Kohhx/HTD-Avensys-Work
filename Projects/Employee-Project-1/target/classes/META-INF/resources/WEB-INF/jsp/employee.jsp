@@ -17,20 +17,27 @@
 <div class="container">
     <h1 class="mt-5">Enter Todo Details</h1>
     <form:form method="post" modelAttribute="employee">
-        <div class="mb-3">
-            <label class="form-label">Name</label>
-            <form:input type="text" class="form-control" id="name" path="name" required="required"/>
-<%--            <form:errors path="name" cssClass="error"/>--%>
+        <div class="d-flex justify-content-between gap-5">
+            <div class="mb-3 w-100">
+                <label class="form-label">First Name</label>
+                <form:input type="text" class="form-control" id="firstName" path="firstName" required="required"/>
+                    <%--            <form:errors path="name" cssClass="error"/>--%>
+            </div>
+            <div class="mb-3 w-100">
+                <label class="form-label">Last Name</label>
+                <form:input type="text" class="form-control" id="lastName" path="lastName" required="required"/>
+                    <%--            <form:errors path="name" cssClass="error"/>--%>
+            </div>
         </div>
         <div class="mb-3">
             <label class="form-label">Age</label>
             <form:input type="number" class="form-control" id="name" path="age" required="required"/>
-<%--            <form:errors path="age" cssClass="error"/>--%>
+                <%--            <form:errors path="age" cssClass="error"/>--%>
         </div>
         <div class="mb-3">
             <label class="form-label">Address</label>
             <form:input type="text" class="form-control" id="address" path="address" required="required"/>
-<%--            <form:errors path="address" cssClass="error"/>--%>
+                <%--            <form:errors path="address" cssClass="error"/>--%>
         </div>
 
         <%--    Hidden input--%>
