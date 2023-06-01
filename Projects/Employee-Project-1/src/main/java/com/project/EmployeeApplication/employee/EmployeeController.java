@@ -1,7 +1,9 @@
 package com.project.EmployeeApplication.employee;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +38,12 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "add-employee", method = RequestMethod.POST)
-    public String createNewEmployee(ModelMap model, Employee employee) {
+    public String createNewEmployee(ModelMap model, @Valid Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
+            model.put("type", "create");
+            model.put("title", "Create New Employee");
+            return "employee";
+        }
         employeeService.addEmployee(employee);
         return "redirect:list-employees";
     }
@@ -49,7 +56,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "update-employee", method = RequestMethod.GET)
     public String updateEmployeePage(@RequestParam("id") int employeeId, ModelMap model) {
-        Employee employee  = employeeService.getEmployeeById(employeeId);
+        Employee employee = employeeService.getEmployeeById(employeeId);
         model.put("employee", employee);
         model.put("type", "update");
         model.put("title", "Update Employee");
@@ -57,7 +64,12 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "update-employee", method = RequestMethod.POST)
-    public String updateEmployeePage(ModelMap model, Employee employee ) {
+    public String updateEmployeePage(ModelMap model, @Valid Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
+            model.put("type", "update");
+            model.put("title", "Update Employee");
+            return "employee";
+        }
         employeeService.updateEmployeeById(employee);
         return "redirect:list-employees";
     }
