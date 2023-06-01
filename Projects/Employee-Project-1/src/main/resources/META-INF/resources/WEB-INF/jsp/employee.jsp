@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-5">Enter Todo Details</h1>
+    <h1 class="mt-5">${title}</h1>
     <form:form method="post" modelAttribute="employee">
         <div class="d-flex justify-content-between gap-5">
             <div class="mb-3 w-100">
@@ -28,6 +28,11 @@
                 <form:input type="text" class="form-control" id="lastName" path="lastName" required="required"/>
                     <%--            <form:errors path="name" cssClass="error"/>--%>
             </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <form:input type="email" class="form-control" id="email" path="email" required="required"/>
+                <%--            <form:errors path="age" cssClass="error"/>--%>
         </div>
         <div class="mb-3">
             <label class="form-label">Age</label>
@@ -43,7 +48,12 @@
         <%--    Hidden input--%>
         <form:input type="hidden" path="id"/>
 
-        <button type="submit" class="btn btn-primary">Create Employee</button>
+        <c:if test="${type == 'create'}">
+            <button type="submit" class="btn btn-primary">Create employee</button>
+        </c:if>
+        <c:if test="${type == 'update'}">
+            <button type="submit" class="btn btn-primary">Update employee</button>
+        </c:if>
     </form:form>
 </div>
 <script src="/webjars/bootstrap/5.1.3/js/bootstrap.js"></script>

@@ -13,15 +13,15 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
     private static int employeeId = 0;
 
     {
-        employees.add(new Employee(++employeeId, "He Xiang","Koh", 33, "Bishan st 24"));
-        employees.add(new Employee(++employeeId, "Leon","Boon", 26, "Woodlands st 12"));
-        employees.add(new Employee(++employeeId, "Ashley","Yeo", 35, "Tampines st 21"));
+        employees.add(new Employee(++employeeId, "He Xiang","Koh", "koh@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee(++employeeId, "Leon","Boon", "leon33@gmail.com", 26, "Woodlands st 12"));
+        employees.add(new Employee(++employeeId, "Ashley","Yeo", "ashley@gmail.com", 35, "Tampines st 21"));
     }
 
 
     @Override
     public void addEmployee(Employee employee) {
-        employees.add(new Employee(++employeeId, employee.getFirstName(), employee.getLastName(), employee.getAge(), employee.getAddress()));
+        employees.add(new Employee(++employeeId, employee.getFirstName(), employee.getLastName(), employee.getEmail(), employee.getAge(), employee.getAddress()));
     }
 
     @Override
