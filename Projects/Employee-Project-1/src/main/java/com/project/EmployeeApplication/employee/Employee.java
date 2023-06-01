@@ -2,22 +2,26 @@ package com.project.EmployeeApplication.employee;
 
 public class Employee {
     private int id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private int age;
     private String address;
 
     public Employee() {
     }
 
-    public Employee(String name, int age, String address) {
-        this.name = name;
+    public Employee( String firstName, String lastName, int age, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.address = address;
     }
 
-    public Employee(int id, String name, int age, String address) {
+
+    public Employee(int id, String firstName, String lastName, int age, String address) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.address = address;
     }
@@ -30,12 +34,20 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getAge() {
@@ -58,7 +70,8 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
                 '}';
