@@ -7,7 +7,21 @@
     <meta charset="UTF-8">
     <title>Add Employee</title>
     <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        body {
+            background: rgb(239, 242, 247);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            margin-top: 80px;
+        }
         .error {
             color: red;
             font-style: italic;
@@ -15,7 +29,8 @@
     </style>
 </head>
 <body>
-<div class="container">
+<%@ include file="navbar.jsp" %>
+<div class="container main">
     <h1 class="mt-5">${title}</h1>
     <form:form method="post" modelAttribute="employee">
         <div class="d-flex justify-content-between gap-5">
