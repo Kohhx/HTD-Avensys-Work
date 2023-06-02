@@ -58,11 +58,22 @@
             margin-right: 10px;
             margin-left: 10px;
         }
+
+        .arrow > a {
+            text-decoration: none;
+        }
+
         .avatar-small {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
+        }
+
+        .arrow-disabled {
+            margin-right: 10px;
+            margin-left: 10px;
+            color: rgb(126, 131, 157);
         }
     </style>
 </head>
@@ -111,12 +122,14 @@
                     <tr>
                         <td>${employee.id}</td>
                         <c:if test="${employee.profileUrl == null}">
-                        <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}" alt="profile image"></td>
+                            <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}"
+                                                         alt="profile image"></td>
                         </c:if>
                         <c:if test="${employee.profileUrl != null}">
-                            <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}" alt="employee profile"></td>
+                            <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}"
+                                                         alt="employee profile"></td>
                         </c:if>
-<%--                        <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}" alt="employee profile"></td>--%>
+                            <%--                        <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}" alt="employee profile"></td>--%>
                         <td>${employee.firstName}</td>
                         <td>${employee.lastName}</td>
                         <td>${employee.gender}</td>
@@ -134,11 +147,25 @@
                 </tbody>
             </table>
 
+            <%--            <div class="pagination">--%>
+            <%--                <span>1 of 4 </span>--%>
+            <%--                <div class="arrow"><a href=""><<</a></div>--%>
+            <%--                <span> 1 </span>--%>
+            <%--                <div class="arrow"><a href="">>></a></div>--%>
+            <%--            </div>--%>
+
             <div class="pagination">
-                <span>1 of 4 </span>
-                <div class="arrow"><a href=""><<</a></div>
-                <span> 1 </span>
-                <div class="arrow"><a href="">>></a></div>
+                <span>${page} of ${totalPages} </span>
+                <c:if test="${page > 1}">
+                    <div class="arrow"><a href="/list-employees?page=${page-1}"><<</a></div>
+                </c:if>
+                <c:if test="${page == 1}">
+                    <div class="arrow-disabled"><<</div>
+                </c:if>
+                <span> ${page} </span>
+                <c:if test="${page < totalPages}">
+                    <div class="arrow"><a href="/list-employees?page=${page+1}">>></a></div>
+                </c:if>
             </div>
         </div>
     </div>

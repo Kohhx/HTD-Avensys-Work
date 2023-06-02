@@ -104,7 +104,7 @@
 
         <div class="grid-container">
 
-            <a href="/list-employees">
+            <a href="/list-employees?page=1">
                 <div class="category-card">
                     <img src="../../images/employees-list.png" alt="employees list">
                     <div class="category-name">Employees List</div>

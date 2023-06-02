@@ -1,6 +1,8 @@
 package com.project.EmployeeApplication.employee;
 
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +19,21 @@ public class ActualEmployeeService implements EmployeeService {
 
     @Override
     public void addEmployee(Employee employee) {
+        if (employee.getProfileUrl() == null || employee.getProfileUrl() == "") {
+            employee.setProfileUrl(null);
+        }
         repository.save(employee);
     }
 
     @Override
     public List<Employee> getAllEmployees() {
         return repository.findAll();
+    }
+
+    public Page<Employee> getEmployeeByPage(int page, int size) {
+        PageRequest pageable = PageRequest.of(page, size);
+        Page employeesPage =repository.findAll(pageable);
+        return employeesPage;
     }
 
     @Override

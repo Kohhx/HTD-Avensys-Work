@@ -1,5 +1,6 @@
 package com.project.EmployeeApplication.employee;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -49,5 +50,10 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Page<Employee> getEmployeeByPage(int page, int size) {
+        return null;
     }
 }

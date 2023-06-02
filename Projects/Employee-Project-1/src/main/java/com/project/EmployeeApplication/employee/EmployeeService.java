@@ -1,5 +1,7 @@
 package com.project.EmployeeApplication.employee;
 
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 public interface EmployeeService {
@@ -13,5 +15,7 @@ public interface EmployeeService {
     boolean deleteEmployeeById(int id);
 
     boolean updateEmployeeById(Employee employee);
+
+    Page<Employee> getEmployeeByPage(int page, int size);
 
 }
