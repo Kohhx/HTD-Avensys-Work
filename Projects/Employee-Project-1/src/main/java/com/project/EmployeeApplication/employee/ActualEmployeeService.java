@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 @Primary
-public class ActualEmployeeService implements EmployeeService{
+public class ActualEmployeeService implements EmployeeService {
 
     private final EmployeeRepository repository;
 
@@ -43,6 +43,12 @@ public class ActualEmployeeService implements EmployeeService{
         Employee employeeFound = getEmployeeById(employee.getId());
         employeeFound.setFirstName(employee.getFirstName());
         employeeFound.setLastName(employee.getLastName());
+        employeeFound.setGender(employee.getGender());
+        if (employee.getProfileUrl() == null || employee.getProfileUrl() == "") {
+            employeeFound.setProfileUrl(null);
+        } else {
+            employeeFound.setProfileUrl(employee.getProfileUrl());
+        }
         employeeFound.setEmail(employee.getEmail());
         employeeFound.setAge(employee.getAge());
         employeeFound.setAddress(employee.getAddress());
