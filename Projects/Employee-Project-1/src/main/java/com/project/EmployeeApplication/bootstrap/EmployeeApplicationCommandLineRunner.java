@@ -21,7 +21,6 @@ public class EmployeeApplicationCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh@gmail.com",33, "Bishan st 24"));
         employees.add(new Employee("Leon","Boon","male", null, "leon33@gmail.com", 26, "Woodlands st 12"));
