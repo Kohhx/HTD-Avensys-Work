@@ -127,7 +127,7 @@
         <div class="login-card">
             <div class="text-center login-icon-container"><img class="login-icon" src="../../images/login.png"
                                                                alt="login icon"></div>
-            <h4 class="text-center mt-2">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></h4>
+            <h4 class="text-center mt-2">Login <i class="ml-2 fa-regular fa-user"></i></i></h4>
             <div class="error">${errorMessage}</div>
             <form method="post">
                 <div class="mb-3">
