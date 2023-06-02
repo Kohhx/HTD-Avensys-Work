@@ -58,6 +58,12 @@
             margin-right: 10px;
             margin-left: 10px;
         }
+        .avatar-small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -85,12 +91,14 @@
 
         <%--    table here--%>
         <div class="table-responsive">
-            <table class="table table-striped-columns table-bordered table-hover custom-table">
+            <table class="table table-striped-columns table-hover custom-table">
                 <thead>
                 <tr class="table-secondary">
                     <th>Id</th>
+                    <th class="text-center">Profile Image</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Gender</th>
                     <th>Email</th>
                     <th>Age</th>
                     <th>Address</th>
@@ -102,8 +110,16 @@
                 <c:forEach items="${employees}" var="employee">
                     <tr>
                         <td>${employee.id}</td>
+                        <c:if test="${employee.profileUrl == null}">
+                        <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}" alt="profile image"></td>
+                        </c:if>
+                        <c:if test="${employee.profileUrl != null}">
+                            <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}" alt="employee profile"></td>
+                        </c:if>
+<%--                        <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}" alt="employee profile"></td>--%>
                         <td>${employee.firstName}</td>
                         <td>${employee.lastName}</td>
+                        <td>${employee.gender}</td>
                         <td>${employee.email}</td>
                         <td>${employee.age}</td>
                         <td>${employee.address}</td>

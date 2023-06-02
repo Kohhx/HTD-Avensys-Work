@@ -16,6 +16,7 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private String DEFAULTFRPROILEURL = "https://res.cloudinary.com/duadcuueg/image/upload/v1685708964/bubble-gum-avatar-icon_knuvhr.png";
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -25,15 +26,18 @@ public class EmployeeController {
     public String listAllEmployees(ModelMap model) {
         List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("employees", employees);
+        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
         return "listEmployees";
     }
 
     @RequestMapping(value = "add-employee", method = RequestMethod.GET)
     public String newEmployeePage(ModelMap model) {
         Employee employee = new Employee();
+        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
         model.put("employee", employee);
         model.put("type", "create");
         model.put("title", "Create New Employee");
+        model.put("gender", List.of("male","female"));
         return "employee";
     }
 
@@ -41,6 +45,7 @@ public class EmployeeController {
     public String createNewEmployee(ModelMap model, @Valid Employee employee, BindingResult result) {
         if (result.hasErrors()) {
             model.put("type", "create");
+            model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
             model.put("title", "Create New Employee");
             return "employee";
         }
@@ -57,7 +62,9 @@ public class EmployeeController {
     @RequestMapping(value = "update-employee", method = RequestMethod.GET)
     public String updateEmployeePage(@RequestParam("id") int employeeId, ModelMap model) {
         Employee employee = employeeService.getEmployeeById(employeeId);
+        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
         model.put("employee", employee);
+        model.put("gender", List.of("male","female"));
         model.put("type", "update");
         model.put("title", "Update Employee");
         return "employee";
@@ -73,6 +80,4 @@ public class EmployeeController {
         employeeService.updateEmployeeById(employee);
         return "redirect:list-employees";
     }
-
-
 }

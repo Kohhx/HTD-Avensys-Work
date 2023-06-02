@@ -55,6 +55,7 @@
       width: 35px;
       border-radius: 50%;
       border: 1.5px solid white;
+      object-fit: cover;
     }
   </style>
 
@@ -65,7 +66,7 @@
       <div class="logo-text">
         <h6>Singapore</h6>
         <h5>Employment <span>Management</span>
-          System</h5>
+          Portal</h5>
       </div>
     </div>
 

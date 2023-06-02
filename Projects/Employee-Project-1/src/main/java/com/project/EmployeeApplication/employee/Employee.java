@@ -20,6 +20,13 @@ public class Employee {
     @Column(name="last_name",nullable = false)
     private String lastName;
 
+    @NotNull(message = "Gender cannot be empty")
+    @Column(name="gender",nullable = false)
+    private String gender;
+
+    @Column(name="profile_url")
+    private String profileUrl;
+
     @Email(message = "Email should be valid")
     @NotNull(message = "Email cannot be empty")
     @Column(name="email", nullable = false, unique = true)
@@ -39,18 +46,22 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String email, int age, String address) {
+    public Employee( String firstName, String lastName, String gender, String profileUrl, String email, int age, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
+        this.profileUrl = profileUrl;
         this.email = email;
         this.age = age;
         this.address = address;
     }
 
-    public Employee(int id, String firstName, String lastName, String email, int age, String address) {
+    public Employee(int id, String firstName, String lastName, String gender, String profileUrl, String email, int age, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
+        this.profileUrl = profileUrl;
         this.email = email;
         this.age = age;
         this.address = address;
@@ -104,12 +115,30 @@ public class Employee {
         this.email = email;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", profileUrl='" + profileUrl + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
