@@ -34,7 +34,7 @@ public class EmployeeController {
     @RequestMapping(value = "list-employees", method = RequestMethod.GET)
     public String listAllEmployees(ModelMap model, @RequestParam String page) {
         int pageInt = Integer.parseInt(page);
-        int size = 2;
+        int size = 10;
         Page<Employee> employeesPage = employeeService.getEmployeeByPage(pageInt - 1, size);
         int employeesPageTotalPages = employeesPage.getTotalPages();
         model.put("totalPages", employeesPageTotalPages);

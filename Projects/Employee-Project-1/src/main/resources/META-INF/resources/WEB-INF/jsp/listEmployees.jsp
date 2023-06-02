@@ -75,11 +75,15 @@
             margin-left: 10px;
             color: rgb(126, 131, 157);
         }
+
+        td, th{
+            padding:10px 20px !important;
+        }
     </style>
 </head>
 <body>
 <%@ include file="navbar.jsp" %>
-<div class="container main">
+<div class="container main mb-5">
     <h1>Welcome <b>${username}</b>, This is the Employee List</h1>
 
     <div class="table-card mt-4">
