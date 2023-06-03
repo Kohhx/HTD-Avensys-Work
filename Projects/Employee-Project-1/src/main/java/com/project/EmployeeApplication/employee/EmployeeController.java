@@ -5,10 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,15 +30,20 @@ public class EmployeeController {
 
     @RequestMapping(value = "list-employees", method = RequestMethod.GET)
     public String listAllEmployees(ModelMap model, @RequestParam String page) {
-        int pageInt = Integer.parseInt(page);
-        int size = 10;
-        Page<Employee> employeesPage = employeeService.getEmployeeByPage(pageInt - 1, size);
-        int employeesPageTotalPages = employeesPage.getTotalPages();
-        model.put("totalPages", employeesPageTotalPages);
-        model.put("page", pageInt);
-        model.addAttribute("employees", employeesPage.getContent());
-        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
-        return "listEmployees";
+        String username = (String) model.get("username");
+        if (username != null && !username.isEmpty()) {
+            model.put("username", username);
+            int pageInt = Integer.parseInt(page);
+            int size = 10;
+            Page<Employee> employeesPage = employeeService.getEmployeeByPage(pageInt - 1, size);
+            int employeesPageTotalPages = employeesPage.getTotalPages();
+            model.put("totalPages", employeesPageTotalPages);
+            model.put("page", pageInt);
+            model.addAttribute("employees", employeesPage.getContent());
+            model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
+            return "listEmployees";
+        }
+        return "redirect:login";
     }
 
     @RequestMapping(value = "add-employee", method = RequestMethod.GET)
@@ -93,5 +95,13 @@ public class EmployeeController {
         }
         employeeService.updateEmployeeById(employee);
         return "redirect:list-employees?page=1";
+    }
+
+    @RequestMapping(value = "employee/{employeeId}", method = RequestMethod.GET)
+    public String showEmployee(@PathVariable int employeeId, ModelMap model) {
+        Employee employee = employeeService.getEmployeeById(employeeId);
+        model.put("employee", employee);
+        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
+        return "showEmployee";
     }
 }

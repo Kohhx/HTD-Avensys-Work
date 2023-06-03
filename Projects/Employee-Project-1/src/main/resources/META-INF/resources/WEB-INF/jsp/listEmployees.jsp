@@ -61,6 +61,12 @@
 
         .arrow > a {
             text-decoration: none;
+            cursor: pointer;
+            color: black;
+        }
+
+        .arrow > a:hover {
+            color: rgb(85, 122, 221);
         }
 
         .avatar-small {
@@ -76,8 +82,13 @@
             color: rgb(126, 131, 157);
         }
 
-        td, th{
-            padding:10px 20px !important;
+        td, th {
+            padding: 10px 15px !important;
+            font-size: 1rem;
+        }
+
+        .btn-custom {
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -119,34 +130,37 @@
                     <th>Address</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${employees}" var="employee">
-                    <tr>
-                        <td>${employee.id}</td>
-                        <c:if test="${employee.profileUrl == null}">
-                            <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}"
-                                                         alt="profile image"></td>
-                        </c:if>
-                        <c:if test="${employee.profileUrl != null}">
-                            <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}"
-                                                         alt="employee profile"></td>
-                        </c:if>
-                            <%--                        <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}" alt="employee profile"></td>--%>
-                        <td>${employee.firstName}</td>
-                        <td>${employee.lastName}</td>
-                        <td>${employee.gender}</td>
-                        <td>${employee.email}</td>
-                        <td>${employee.age}</td>
-                        <td>${employee.address}</td>
-                        <td class="text-center">
-                            <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
-                        </td>
-                        <td class="text-center">
-                            <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>${employee.id}</td>
+                            <c:if test="${employee.profileUrl == null}">
+                                <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}"
+                                                             alt="profile image"></td>
+                            </c:if>
+                            <c:if test="${employee.profileUrl != null}">
+                                <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}"
+                                                             alt="employee profile"></td>
+                            </c:if>
+                            <td>${employee.firstName}</td>
+                            <td>${employee.lastName}</td>
+                            <td>${employee.gender}</td>
+                            <td>${employee.email}</td>
+                            <td>${employee.age}</td>
+                            <td>${employee.address}</td>
+                            <td class="text-center">
+                                <a href="employee/${employee.id}" class="btn btn-secondary btn-custom">View Profile</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
                 </c:forEach>
                 </tbody>
             </table>
