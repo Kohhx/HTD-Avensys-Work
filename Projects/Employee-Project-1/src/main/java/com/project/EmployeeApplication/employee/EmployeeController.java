@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@SessionAttributes("username")
+@SessionAttributes({"username","role"})
+
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -23,11 +24,12 @@ public class EmployeeController {
     @RequestMapping(value = "list-employees", method = RequestMethod.GET)
     public String listAllEmployees(ModelMap model, @RequestParam(required = false) String page, @RequestParam(required = false) String search) {
         String username = (String) model.get("username");
+        String role = (String) model.get("role");
+        System.out.println(role);
         if (username != null && !username.isEmpty()) {
             int pageInt = Integer.parseInt(page);
             int size = 10;
             model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
-            model.put("username", username);
             Page<Employee> employees;
             if (search != null && !search.isEmpty()) {
                 employees = employeeService.getEmployeeBySearchPage(search, pageInt - 1, size);

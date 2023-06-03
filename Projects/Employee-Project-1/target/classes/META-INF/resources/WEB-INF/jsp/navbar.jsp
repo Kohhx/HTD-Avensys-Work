@@ -73,7 +73,7 @@
 <header>
     <nav>
         <div class="d-flex align-items-center gap-3">
-            <i class="fa-solid fa-bars fs-2"></i>
+            <a href=""> <i class="fa-solid fa-bars fs-2"></i></a>
             <a href="/welcome">
                 <div class="logo-text">
                     <h6>Singapore</h6>
