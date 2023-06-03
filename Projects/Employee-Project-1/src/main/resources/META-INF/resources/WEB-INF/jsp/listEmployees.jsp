@@ -102,11 +102,11 @@
         <div class="d-flex align-items-center justify-content-between p-4">
             <h3>Employee List</h3>
             <div class="d-flex align-items-center gap-3">
-                <form>
+                <form method="get" action="/list-employees?page=1&">
                     <div class="search-bar-container d-flex align-items-center"><i
                             class="fa-solid fa-magnifying-glass"></i>
-                        <input class="search-bar-input" type="text"></div>
-
+                        <input class="search-bar-input" value="${search}" type="text" name="search"></div>
+                    <input hidden type="text" value=1 name="page">
                     <button type="submit" hidden>submit</button>
                 </form>
                 <a href="add-employee" class="btn btn-success">
@@ -135,32 +135,32 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${employees}" var="employee">
-                        <tr>
-                            <td>${employee.id}</td>
-                            <c:if test="${employee.profileUrl == null}">
-                                <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}"
-                                                             alt="profile image"></td>
-                            </c:if>
-                            <c:if test="${employee.profileUrl != null}">
-                                <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}"
-                                                             alt="employee profile"></td>
-                            </c:if>
-                            <td>${employee.firstName}</td>
-                            <td>${employee.lastName}</td>
-                            <td>${employee.gender}</td>
-                            <td>${employee.email}</td>
-                            <td>${employee.age}</td>
-                            <td>${employee.address}</td>
-                            <td class="text-center">
-                                <a href="employee/${employee.id}" class="btn btn-secondary btn-custom">View Profile</a>
-                            </td>
-                            <td class="text-center">
-                                <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
-                            </td>
-                            <td class="text-center">
-                                <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>${employee.id}</td>
+                        <c:if test="${employee.profileUrl == null}">
+                            <td class="text-center"><img class="avatar-small" src="${defaultProfileUrl}"
+                                                         alt="profile image"></td>
+                        </c:if>
+                        <c:if test="${employee.profileUrl != null}">
+                            <td class="text-center"><img class="avatar-small" src="${employee.profileUrl}"
+                                                         alt="employee profile"></td>
+                        </c:if>
+                        <td>${employee.firstName}</td>
+                        <td>${employee.lastName}</td>
+                        <td>${employee.gender}</td>
+                        <td>${employee.email}</td>
+                        <td>${employee.age}</td>
+                        <td>${employee.address}</td>
+                        <td class="text-center">
+                            <a href="employee/${employee.id}" class="btn btn-secondary btn-custom">View Profile</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>
@@ -175,14 +175,14 @@
             <div class="pagination">
                 <span>${page} of ${totalPages} </span>
                 <c:if test="${page > 1}">
-                    <div class="arrow"><a href="/list-employees?page=${page-1}"><<</a></div>
+                    <div class="arrow"><a href="/list-employees?page=${page-1}&search=${search}"><<</a></div>
                 </c:if>
                 <c:if test="${page == 1}">
                     <div class="arrow-disabled"><<</div>
                 </c:if>
                 <span> ${page} </span>
                 <c:if test="${page < totalPages}">
-                    <div class="arrow"><a href="/list-employees?page=${page+1}">>></a></div>
+                    <div class="arrow"><a href="/list-employees?page=${page+1}&search=${search}">>></a></div>
                 </c:if>
             </div>
         </div>

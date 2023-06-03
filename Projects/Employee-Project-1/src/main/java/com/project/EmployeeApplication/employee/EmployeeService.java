@@ -18,4 +18,6 @@ public interface EmployeeService {
 
     Page<Employee> getEmployeeByPage(int page, int size);
 
+    Page<Employee> getEmployeeBySearchPage(String search, int page, int size);
+
 }

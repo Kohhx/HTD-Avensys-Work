@@ -20,27 +20,24 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-//    @RequestMapping(value = "list-employees", method = RequestMethod.GET)
-//    public String listAllEmployees(ModelMap model) {
-//        List<Employee> employees = employeeService.getAllEmployees();
-//        model.addAttribute("employees", employees);
-//        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
-//        return "listEmployees";
-//    }
-
     @RequestMapping(value = "list-employees", method = RequestMethod.GET)
-    public String listAllEmployees(ModelMap model, @RequestParam String page) {
+    public String listAllEmployees(ModelMap model, @RequestParam(required = false) String page, @RequestParam(required = false) String search) {
         String username = (String) model.get("username");
         if (username != null && !username.isEmpty()) {
-            model.put("username", username);
             int pageInt = Integer.parseInt(page);
             int size = 10;
-            Page<Employee> employeesPage = employeeService.getEmployeeByPage(pageInt - 1, size);
-            int employeesPageTotalPages = employeesPage.getTotalPages();
-            model.put("totalPages", employeesPageTotalPages);
-            model.put("page", pageInt);
-            model.addAttribute("employees", employeesPage.getContent());
             model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
+            model.put("username", username);
+            Page<Employee> employees;
+            if (search != null && !search.isEmpty()) {
+                employees = employeeService.getEmployeeBySearchPage(search, pageInt - 1, size);
+                model.put("search", search);
+            } else {
+                employees = employeeService.getEmployeeByPage(pageInt - 1, size);
+            }
+            model.put("totalPages", employees.getTotalPages());
+            model.put("page", pageInt);
+            model.addAttribute("employees", employees.getContent());
             return "listEmployees";
         }
         return "redirect:login";

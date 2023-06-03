@@ -15,9 +15,9 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
     private static String DEFAULTFRPROILEURL = "https://res.cloudinary.com/duadcuueg/image/upload/v1685708964/bubble-gum-avatar-icon_knuvhr.png";
 
     {
-        employees.add(new Employee(++employeeId, "He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh@gmail.com",33, "Bishan st 24"));
-        employees.add(new Employee(++employeeId, "Leon","Boon","male", DEFAULTFRPROILEURL, "leon33@gmail.com", 26, "Woodlands st 12"));
-        employees.add(new Employee(++employeeId, "Ashley","Yeo","male", DEFAULTFRPROILEURL, "ashley@gmail.com", 35, "Tampines st 21"));
+        employees.add(new Employee(++employeeId, "He Xiang", "Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg", "koh@gmail.com", 33, "Bishan st 24"));
+        employees.add(new Employee(++employeeId, "Leon", "Boon", "male", DEFAULTFRPROILEURL, "leon33@gmail.com", 26, "Woodlands st 12"));
+        employees.add(new Employee(++employeeId, "Ashley", "Yeo", "male", DEFAULTFRPROILEURL, "ashley@gmail.com", 35, "Tampines st 21"));
     }
 
 
@@ -56,4 +56,10 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
     public Page<Employee> getEmployeeByPage(int page, int size) {
         return null;
     }
+
+    @Override
+    public Page<Employee> getEmployeeBySearchPage(String search, int page, int size) {
+        return null;
+    }
+
 }
