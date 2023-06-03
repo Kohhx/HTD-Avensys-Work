@@ -11,6 +11,7 @@ public class HardCodedAuthenticationService {
 
     private static List<User> users = new ArrayList<>();
     private static int userId = 0;
+    public boolean isUserLoggedIn = false;
 
     {
         users.add(new User(++userId, "kohhx", "password"));
@@ -24,5 +25,16 @@ public class HardCodedAuthenticationService {
         return userFound.isPresent();
     }
 
+//    public void setUserLoggedIn() {
+//        isUserLoggedIn = true;
+//    }
+//
+//    public void setUserLoggedOut() {
+//        isUserLoggedIn = false;
+//    }
+//
+//    public boolean isUserLoggedIn() {
+//        return isUserLoggedIn;
+//    }
 
 }

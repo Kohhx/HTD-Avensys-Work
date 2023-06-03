@@ -1,5 +1,6 @@
 package com.project.EmployeeApplication.authentication;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,32 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String goToWelcomePage(@RequestParam String username, @RequestParam String password, ModelMap model) {
+    public String loginRequest(@RequestParam String username, @RequestParam String password, ModelMap model) {
         if (authService.authenticate(username, password)) {
             model.put("username", username);
             return "welcome";
         }
         model.put("errorMessage","Invalid Credentials! Please try again!");
         return "login";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutRequest(HttpSession session, ModelMap model) {
+        session.invalidate();
+        if (model.containsAttribute("username")){
+            model.remove("username");
+        }
+        return "redirect:login";
+    }
+
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    public String goToWelcomePage(ModelMap model) {
+        String username = (String) model.get("username");
+        if (username != null && !username.isEmpty()) {
+            model.put("username", username);
+            return "welcome";
+        }
+        return "redirect:login";
     }
 
 
