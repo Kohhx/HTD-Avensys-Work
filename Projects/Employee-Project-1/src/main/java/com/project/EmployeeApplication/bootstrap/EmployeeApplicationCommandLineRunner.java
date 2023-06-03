@@ -25,7 +25,13 @@ public class EmployeeApplicationCommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         List<Employee> employees = new ArrayList<>();
 
-        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh1@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh2@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh3@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh4@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh5@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh6@gmail.com",33, "Bishan st 24"));
+
         employees.add(new Employee("Leon","Boon","male", null, "leon33@gmail.com", 26, "Woodlands st 12"));
         employees.add(new Employee("Ashley","Yeo","male", null, "ashley@gmail.com", 35, "Tampines st 21"));
 
@@ -43,6 +49,14 @@ public class EmployeeApplicationCommandLineRunner implements CommandLineRunner {
             String gender = genderArray[new Random().nextInt(genderArray.length)];
             employees.add(new Employee(firstName, lastName, gender, null, email, age, address));
         }
+
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh7@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh8@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh9@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh10@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh11@gmail.com",33, "Bishan st 24"));
+        employees.add(new Employee("He Xiang","Koh", "male", "https://res.cloudinary.com/duadcuueg/image/upload/v1685689176/Profile-Pic_wyso5b.jpg","koh@gmail.com",33, "Bishan st 24"));
+
         repository.saveAll(employees);
     }
 }

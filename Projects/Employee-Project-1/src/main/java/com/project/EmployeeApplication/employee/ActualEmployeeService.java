@@ -19,7 +19,7 @@ public class ActualEmployeeService implements EmployeeService {
 
     @Override
     public void addEmployee(Employee employee) {
-        if (employee.getProfileUrl() == null || employee.getProfileUrl() == "") {
+        if (employee.getProfileUrl() == null || employee.getProfileUrl().equals("")) {
             employee.setProfileUrl(null);
         }
         repository.save(employee);
@@ -33,6 +33,13 @@ public class ActualEmployeeService implements EmployeeService {
     public Page<Employee> getEmployeeByPage(int page, int size) {
         PageRequest pageable = PageRequest.of(page, size);
         Page employeesPage =repository.findAll(pageable);
+        return employeesPage;
+    }
+
+    @Override
+    public Page<Employee> getEmployeeBySearchPage(String search, int page, int size) {
+        PageRequest pageable = PageRequest.of(page, size);
+        Page employeesPage = repository.searchEmployeesByFirstNameOrLastNameOrEmail(search, pageable);
         return employeesPage;
     }
 
@@ -66,4 +73,6 @@ public class ActualEmployeeService implements EmployeeService {
         repository.save(employeeFound);
         return true;
     }
+
+
 }
