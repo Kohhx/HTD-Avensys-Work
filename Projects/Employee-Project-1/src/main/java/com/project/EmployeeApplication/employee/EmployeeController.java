@@ -58,6 +58,7 @@ public class EmployeeController {
     public String createNewEmployee(ModelMap model, @Valid Employee employee, BindingResult result) {
         if (result.hasErrors()) {
             model.put("type", "create");
+            model.put("gender", List.of("male", "female"));
             model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
             model.put("title", "Create New Employee");
             return "employee";
@@ -87,6 +88,7 @@ public class EmployeeController {
     public String updateEmployeePage(ModelMap model, @Valid Employee employee, BindingResult result) {
         if (result.hasErrors()) {
             model.put("type", "update");
+            model.put("gender", List.of("male", "female"));
             model.put("title", "Update Employee");
             return "employee";
         }
