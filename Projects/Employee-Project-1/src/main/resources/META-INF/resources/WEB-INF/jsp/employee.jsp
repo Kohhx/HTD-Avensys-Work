@@ -21,6 +21,7 @@
 
         .main {
             margin-top: 80px;
+            margin-bottom:50px
         }
 
         .error {
@@ -68,12 +69,12 @@
         <div class="d-flex justify-content-between gap-5">
             <div class="mb-3 w-100">
                 <label class="form-label">First Name</label>
-                <form:input type="text" class="form-control" id="firstName" path="firstName" required="required" placeholder="Enter first name"/>
+                <form:input type="text" class="form-control" id="firstName" path="firstName" placeholder="Enter first name"/>
                 <form:errors path="firstName" cssClass="error"/>
             </div>
             <div class="mb-3 w-100">
                 <label class="form-label">Last Name</label>
-                <form:input type="text" class="form-control" id="lastName" path="lastName" required="required" placeholder="Enter last name"/>
+                <form:input type="text" class="form-control" id="lastName" path="lastName" placeholder="Enter last name"/>
                 <form:errors path="lastName" cssClass="error"/>
             </div>
         </div>
@@ -86,20 +87,21 @@
             <div class="mb-3 w-100">
                 <label class="form-label">Gender</label>
                 <form:select path="gender" class="form-control">
-                    <form:option value="NONE"> Select a gender </form:option>
+                    <form:option value=""> Select a gender </form:option>
                     <form:options items="${gender}"></form:options>
                 </form:select>
+                <form:errors path="gender" cssClass="error"/>
             </div>
 
             <div class="mb-3 w-100">
                 <label class="form-label">Age</label>
-                <form:input type="number" class="form-control" id="name" path="age" required="required" placeholder="Enter age"/>
+                <form:input type="number" class="form-control" id="name" path="age" placeholder="Enter age"/>
                 <form:errors path="age" cssClass="error"/>
             </div>
         </div>
         <div class="mb-3">
             <label class="form-label">Address</label>
-            <form:input type="text" class="form-control" id="address" path="address" required="required" placeholder="Enter address"/>
+            <form:input type="text" class="form-control" id="address" path="address" placeholder="Enter address"/>
             <form:errors path="address" cssClass="error"/>
         </div>
 

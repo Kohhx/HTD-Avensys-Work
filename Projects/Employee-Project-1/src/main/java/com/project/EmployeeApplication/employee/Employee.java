@@ -12,15 +12,15 @@ public class Employee {
     @Column( updatable = false)
     private int id;
 
-    @NotNull(message = "First name cannot be empty")
+    @NotEmpty(message = "First name cannot be empty")
     @Column(name="first_name",nullable = false)
     private String firstName;
 
-    @NotNull(message = "Last name cannot be empty")
+    @NotEmpty(message = "Last name cannot be empty")
     @Column(name="last_name",nullable = false)
     private String lastName;
 
-    @NotNull(message = "Gender cannot be empty")
+    @NotEmpty(message = "Gender cannot be empty")
     @Column(name="gender",nullable = false)
     private String gender;
 
@@ -28,7 +28,7 @@ public class Employee {
     private String profileUrl;
 
     @Email(message = "Email should be valid")
-    @NotNull(message = "Email cannot be empty")
+    @NotEmpty(message = "Email cannot be empty")
     @Column(name="email", nullable = false, unique = true)
     private String email;
 
