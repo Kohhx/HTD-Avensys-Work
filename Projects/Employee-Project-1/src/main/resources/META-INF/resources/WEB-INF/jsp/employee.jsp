@@ -48,7 +48,7 @@
 <body>
 <%@ include file="navbar.jsp" %>
 <div class="container main w-50">
-    <h1 class="mt-5">${title}</h1>
+    <h1 class="mt-5 mb-4"><i class="fa-regular fa-user"></i> ${title}</h1>
     <form:form method="post" modelAttribute="employee">
         <div class="d-flex justify-content-between align-items-center gap-5 mt-3 mb-3">
             <c:if test="${type == 'create'}">

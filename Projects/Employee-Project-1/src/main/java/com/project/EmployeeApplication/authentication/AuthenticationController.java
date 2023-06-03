@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("username")
+@SessionAttributes({"username","role"})
 public class AuthenticationController {
 
     private final HardCodedAuthenticationService authService;
@@ -24,8 +24,9 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginRequest(@RequestParam String username, @RequestParam String password, ModelMap model) {
+    public String loginRequest(@RequestParam String username, @RequestParam String password, ModelMap model,HttpSession session) {
         if (authService.authenticate(username, password)) {
+            session.setAttribute("role",authService.getRole());
             model.put("username", username);
             return "welcome";
         }
@@ -36,8 +37,9 @@ public class AuthenticationController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutRequest(HttpSession session, ModelMap model) {
         session.invalidate();
-        if (model.containsAttribute("username")){
+        if (model.containsAttribute("username") || model.containsAttribute("role")){
             model.remove("username");
+            model.remove("role");
         }
         return "redirect:login";
     }

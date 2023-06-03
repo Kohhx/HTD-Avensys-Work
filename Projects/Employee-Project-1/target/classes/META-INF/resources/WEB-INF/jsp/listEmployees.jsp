@@ -109,9 +109,11 @@
                     <input hidden type="text" value=1 name="page">
                     <button type="submit" hidden>submit</button>
                 </form>
-                <a href="add-employee" class="btn btn-success">
-                    Add Employee
-                </a>
+                <c:if test="${role == 'ADMIN'}">
+                    <a href="add-employee" class="btn btn-success">
+                        + Add Employee
+                    </a>
+                </c:if>
             </div>
         </div>
 
@@ -129,8 +131,10 @@
                     <th>Age</th>
                     <th>Address</th>
                     <th></th>
-                    <th></th>
-                    <th></th>
+                    <c:if test="${role == 'ADMIN'}">
+                        <th></th>
+                        <th></th>
+                    </c:if>
                 </tr>
                 </thead>
                 <tbody>
@@ -154,12 +158,14 @@
                         <td class="text-center">
                             <a href="employee/${employee.id}" class="btn btn-secondary btn-custom">View Profile</a>
                         </td>
-                        <td class="text-center">
-                            <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
-                        </td>
-                        <td class="text-center">
-                            <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
-                        </td>
+                        <c:if test="${role == 'ADMIN'}">
+                            <td class="text-center">
+                                <a href="update-employee?id=${employee.id}" class="btn btn-warning">Update</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="delete-employee?id=${employee.id}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </c:if>
                     </tr>
                 </c:forEach>
                 </tbody>
