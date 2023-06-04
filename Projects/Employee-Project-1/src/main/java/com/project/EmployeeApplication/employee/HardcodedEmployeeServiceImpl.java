@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+//@Primary
 public class HardcodedEmployeeServiceImpl implements EmployeeService {
 
     private static List<Employee> employees = new ArrayList<>();
@@ -23,6 +24,9 @@ public class HardcodedEmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void addEmployee(Employee employee) {
+        if (employee.getProfileUrl() == null || employee.getProfileUrl().equals("")) {
+            employee.setProfileUrl(null);
+        }
         employees.add(new Employee(++employeeId, employee.getFirstName(), employee.getLastName(), employee.getGender(), employee.getProfileUrl(), employee.getEmail(), employee.getAge(), employee.getAddress()));
     }
 

@@ -21,12 +21,29 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    // This is for hardcodedService
+//    @RequestMapping(value = "list-employees", method = RequestMethod.GET)
+//    public String listAllEmployees(ModelMap model) {
+//    String username = (String) model.get("username");
+//        if (username == null || username.isEmpty()) {
+//        return "redirect:login";
+//    }
+//        List<Employee> employees = employeeService.getAllEmployees();
+//        model.addAttribute("employees", employees);
+//        model.put("totalPages", 1);
+//        model.put("page", 1);
+//        model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
+//        return "listEmployees";
+//    }
+
     @RequestMapping(value = "list-employees", method = RequestMethod.GET)
     public String listAllEmployees(ModelMap model, @RequestParam(required = false) String page, @RequestParam(required = false) String search) {
         String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         String role = (String) model.get("role");
-        System.out.println(role);
-        if (username != null && !username.isEmpty()) {
             int pageInt = Integer.parseInt(page);
             int size = 10;
             model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
@@ -41,12 +58,15 @@ public class EmployeeController {
             model.put("page", pageInt);
             model.addAttribute("employees", employees.getContent());
             return "listEmployees";
-        }
-        return "redirect:login";
     }
 
     @RequestMapping(value = "add-employee", method = RequestMethod.GET)
     public String newEmployeePage(ModelMap model) {
+        String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         Employee employee = new Employee();
         model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
         model.put("employee", employee);
@@ -58,6 +78,11 @@ public class EmployeeController {
 
     @RequestMapping(value = "add-employee", method = RequestMethod.POST)
     public String createNewEmployee(ModelMap model, @Valid Employee employee, BindingResult result) {
+        String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         if (result.hasErrors()) {
             model.put("type", "create");
             model.put("gender", List.of("male", "female"));
@@ -70,13 +95,23 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "delete-employee")
-    public String deleteEmployee(@RequestParam("id") int employeeId) {
+    public String deleteEmployee(@RequestParam("id") int employeeId, ModelMap model) {
+        String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         employeeService.deleteEmployeeById(employeeId);
         return "redirect:list-employees?page=1";
     }
 
     @RequestMapping(value = "update-employee", method = RequestMethod.GET)
     public String updateEmployeePage(@RequestParam("id") int employeeId, ModelMap model) {
+        String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         Employee employee = employeeService.getEmployeeById(employeeId);
         model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
         model.put("employee", employee);
@@ -88,6 +123,11 @@ public class EmployeeController {
 
     @RequestMapping(value = "update-employee", method = RequestMethod.POST)
     public String updateEmployeePage(ModelMap model, @Valid Employee employee, BindingResult result) {
+        String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         if (result.hasErrors()) {
             model.put("type", "update");
             model.put("gender", List.of("male", "female"));
@@ -100,6 +140,11 @@ public class EmployeeController {
 
     @RequestMapping(value = "employee/{employeeId}", method = RequestMethod.GET)
     public String showEmployee(@PathVariable int employeeId, ModelMap model) {
+        String username = (String) model.get("username");
+        if (username == null || username.isEmpty()) {
+            return "redirect:login";
+        }
+
         Employee employee = employeeService.getEmployeeById(employeeId);
         model.put("employee", employee);
         model.put("defaultProfileUrl", DEFAULTFRPROILEURL);
