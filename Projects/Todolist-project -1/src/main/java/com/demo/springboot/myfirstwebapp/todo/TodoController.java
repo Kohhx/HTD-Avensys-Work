@@ -23,8 +23,6 @@ public class TodoController {
     }
 
 
-
-
     @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
     public String listAllTodos(ModelMap model) {
         List<Todo> todos = todoService.getAllTodos("kohhx");
@@ -37,6 +35,7 @@ public class TodoController {
     public String showTodoPage(ModelMap model) {
         String username = (String) model.get("username");
         Todo todo = new Todo (0,username,"", null, false);
+        model.put("type", "create");
         model.put("todo", todo);
         return "todo";
     }
@@ -44,6 +43,7 @@ public class TodoController {
     @RequestMapping(value ="add-todo", method = RequestMethod.POST)
     public String addNewTodo(@Valid Todo todo, BindingResult result , ModelMap model) {
         if (result.hasErrors()){
+            model.put("type", "create");
             System.out.println(result);
             return "todo";
         }
@@ -67,6 +67,7 @@ public class TodoController {
         String formattedDate = date.format(dateTimeFormatter);
         model.put("formattedDate",formattedDate);
         model.addAttribute(todo);
+        model.put("type", "update");
         return "todo";
     }
 
@@ -74,6 +75,7 @@ public class TodoController {
     @RequestMapping(value ="update-todo", method = RequestMethod.POST)
     public String updateTodo( ModelMap model,@Valid Todo todo, BindingResult result ) {
         if (result.hasErrors()){
+            model.put("type", "update");
             return "todo";
         }
         todoService.updateTodo(todo);
