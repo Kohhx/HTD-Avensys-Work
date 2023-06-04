@@ -39,7 +39,8 @@
 <div class="container main w-50">
 
     <div class="pad">
-        <h1 class="mt-2">Create Todo todo <i class="ml-2 fa-solid fa-pen"></i></h1>
+        <c:if test="${type == 'create'}"> <h1 class="mt-2">Create Todo  <i class="ml-2 fa-solid fa-pen"></i></h1></c:if>
+        <c:if test="${type == 'update'}"> <h1 class="mt-2">Update Todo  <i class="ml-2 fa-solid fa-pen"></i></h1></c:if>
         <form:form method="post" modelAttribute="todo">
             <div class="mb-3">
                 <label class="form-label">Description</label>
