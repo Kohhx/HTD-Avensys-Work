@@ -10,7 +10,7 @@ export default function Contact() {
           <h3 class="card-title">Mark Anderson</h3>
           <p class="card-text">What time did react lesson start today?</p>
           <a href="#" class="btn btn-primary">
-            Start Chat
+            Start Chat Now
           </a>
         </div>
       </div>
