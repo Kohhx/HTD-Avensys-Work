@@ -6,6 +6,7 @@ import Ecommerce from "./Ecommerce";
 import Mobile from "./Mobile";
 import Laptop from "./Laptop";
 import Book from "./Book";
+import ContactList from "./ContactList";
 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
@@ -43,12 +44,20 @@ function App() {
           <Link to="/mobile">Mobile</Link>
           <Link to="/laptop">Laptop</Link>
           <Link to="/book">Book</Link>
+          <Link to="/project-1">Project 1</Link>
+          <Link to="/project-2">Project 2</Link>
+          <Link to="/project-3">Project 3</Link>
+          <Link to="/project-4">Project 4</Link>
         </div>
 
         <Routes>
           <Route path="/mobile" element={<Mobile />} />
           <Route path="/laptop" element={<Laptop />} />
           <Route path="/book" element={<Book />} />
+          <Route path="/project-1" element={<ContactList />} />
+          <Route path="/project-2" element={<Todo />} />
+          <Route path="/project-3" element={<Login />} />
+          <Route path="/project-4" element={<Ecommerce />} />
         </Routes>
       </BrowserRouter>
     </div>
