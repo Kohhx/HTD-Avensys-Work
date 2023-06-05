@@ -1,0 +1,13 @@
+.weather-card{
+  border: 2px solid black;
+  padding:30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.weather-title{
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}

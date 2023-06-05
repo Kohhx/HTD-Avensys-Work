@@ -7,6 +7,7 @@ import Mobile from "./Mobile";
 import Laptop from "./Laptop";
 import Book from "./Book";
 import ContactList from "./ContactList";
+import WeatherForecast from "./WeatherForecast";
 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
@@ -48,6 +49,7 @@ function App() {
           <Link to="/project-2">Project 2</Link>
           <Link to="/project-3">Project 3</Link>
           <Link to="/project-4">Project 4</Link>
+          <Link to="/project-5">Project 5</Link>
         </div>
 
         <Routes>
@@ -58,6 +60,7 @@ function App() {
           <Route path="/project-2" element={<Todo />} />
           <Route path="/project-3" element={<Login />} />
           <Route path="/project-4" element={<Ecommerce />} />
+          <Route path="/project-5" element={<WeatherForecast />} />
         </Routes>
       </BrowserRouter>
     </div>
