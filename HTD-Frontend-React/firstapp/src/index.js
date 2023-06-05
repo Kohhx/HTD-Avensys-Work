@@ -2,6 +2,12 @@ import { render } from "react-dom";
 import Contact from "./Contact";
 import Todo from "./Todo";
 import Login from "./Login";
+import Ecommerce from "./Ecommerce";
+import Mobile from "./Mobile";
+import Laptop from "./Laptop";
+import Book from "./Book";
+
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
 function App() {
   // Project 1
@@ -16,10 +22,35 @@ function App() {
   //   <Todo />
   // </div>
 
-  // Project 3
+  // // Project 3
+  // return (
+  //   <div className="d-flex align-items-center justify-content-center vh-100">
+  //     <Login />
+  //   </div>
+  // );
+
+  // Project 4
+  // return (
+  //   <div className="d-flex align-items-center justify-content-center vh-100">
+  //     <Ecommerce />
+  //   </div>
+  // );
+
   return (
-    <div className="d-flex align-items-center justify-content-center vh-100">
-      <Login />
+    <div>
+      <BrowserRouter>
+        <div className="d-flex gap-3">
+          <Link to="/mobile">Mobile</Link>
+          <Link to="/laptop">Laptop</Link>
+          <Link to="/book">Book</Link>
+        </div>
+
+        <Routes>
+          <Route path="/mobile" element={<Mobile />} />
+          <Route path="/laptop" element={<Laptop />} />
+          <Route path="/book" element={<Book />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
