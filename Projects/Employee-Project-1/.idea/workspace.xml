@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d7abbf2-d877-439b-98f9-46b4f1bc6b73" name="Changes" comment="" />
+    <list default="true" id="9d7abbf2-d877-439b-98f9-46b4f1bc6b73" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../HTD-Frontend-React/firstapp/src/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../HTD-Frontend-React/firstapp/src/Contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/EmployeeApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/authentication/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/authentication/HardCodedAuthenticationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/authentication/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/bootstrap/EmployeeApplicationCommandLineRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/employee/ActualEmployeeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/employee/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/employee/EmployeeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/employee/EmployeeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/employee/EmployeeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/EmployeeApplication/employee/HardcodedEmployeeServiceImpl.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685612003556</updated>
       <workItem from="1685612004872" duration="66860000" />
-      <workItem from="1685795150671" duration="7069000" />
+      <workItem from="1685795150671" duration="7078000" />
     </task>
     <servers />
   </component>
