@@ -1,0 +1,21 @@
+.google-btn {
+  background-color: rgb(51,108,242);
+  border: none;
+  border-radius: 2px;
+  padding :1.5px 1.5px 1.5px 1.5px;
+
+}
+
+.google-btn:hover {
+  background-color: rgb(32, 80, 180);
+}
+
+.image-container {
+  background-color: rgb(255,255,255);
+}
+
+.btn-name{
+  color: rgb(255,255,255);
+ padding-left: 15px;
+ padding-right: 15px;
+}

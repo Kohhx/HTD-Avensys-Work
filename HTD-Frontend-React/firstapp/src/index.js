@@ -10,46 +10,52 @@ import ContactList from "./ContactList";
 import WeatherForecast from "./WeatherForecast";
 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import LoginGoogle from "./LoginGoogle";
+import { useState, createContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+// Create context store to store authentication state
+export const myStore = createContext();
 
 function App() {
-  // Project 1
-  // return <div style={{display:"flex",gap:"5px"}}>
-  //   <Contact name="James" message="Good morning" image="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg"/>
-  //   <Contact name="Leon" message="Good morning" image="https://img.lovepik.com/element/40128/7461.png_1200.png"/>
-  //   <Contact name="Sabrina" message="Good morning" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_CQ3IrjZcisW-FO12jxRtSA9shZYuykqA2w&usqp=CAU"/>
-  // </div>
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Project 2
-  // return <div>
-  //   <Todo />
-  // </div>
+  // Not everywhere you can use navigate
+  // You can only useNavigate in the component that is rendered by the Routes component
+  // const navigate = useNavigate();
 
-  // // Project 3
-  // return (
-  //   <div className="d-flex align-items-center justify-content-center vh-100">
-  //     <Login />
-  //   </div>
-  // );
-
-  // Project 4
-  // return (
-  //   <div className="d-flex align-items-center justify-content-center vh-100">
-  //     <Ecommerce />
-  //   </div>
-  // );
+  //Since App is outside of the Routes component, we cannot use useNavigate
+  // We can use window.location.pathname to redirect to a different page
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    window.location.pathname = "/login";
+  };
 
   return (
     <div>
       <BrowserRouter>
-        <div className="d-flex gap-3">
-          <Link to="/mobile">Mobile</Link>
-          <Link to="/laptop">Laptop</Link>
-          <Link to="/book">Book</Link>
-          <Link to="/project-1">Project 1</Link>
-          <Link to="/project-2">Project 2</Link>
-          <Link to="/project-3">Project 3</Link>
-          <Link to="/project-4">Project 4</Link>
-          <Link to="/project-5">Project 5</Link>
+        <div className="d-flex justify-content-between">
+          <div className="d-flex gap-3">
+            {/* {isLoggedIn && ( */}
+              <>
+                <Link to="/mobile">Mobile</Link>
+                <Link to="/laptop">Laptop</Link>
+                <Link to="/book">Book</Link>
+                <Link to="/project-1">Project 1</Link>
+                <Link to="/project-2">Project 2</Link>
+                <Link to="/project-3">Project 3</Link>
+                <Link to="/project-4">Project 4</Link>
+                <Link to="/project-5">Project 5</Link>
+              </>
+            {/* )} */}
+          </div>
+          {isLoggedIn ? (
+            <Link onClick={handleLogout} to="/logout">
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </div>
 
         <Routes>
@@ -61,6 +67,14 @@ function App() {
           <Route path="/project-3" element={<Login />} />
           <Route path="/project-4" element={<Ecommerce />} />
           <Route path="/project-5" element={<WeatherForecast />} />
+          <Route
+            path="/login"
+            element={
+              <myStore.Provider value={{ set: setIsLoggedIn }}>
+                <LoginGoogle />
+              </myStore.Provider>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
