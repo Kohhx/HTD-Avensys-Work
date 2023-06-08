@@ -8,6 +8,7 @@ import { Chart } from "chart.js/auto";
 function App() {
   return (
     <div>
+      <h1>All Charts by chart.js</h1>
       <MyChart />
     </div>
   );

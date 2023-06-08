@@ -14,6 +14,7 @@ function MyChart() {
       },
     ],
   });
+
   return (
     <div>
       <div style={{ height: "500px", width: "500px" }}>
