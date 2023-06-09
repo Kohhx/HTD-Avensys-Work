@@ -4,7 +4,7 @@ import "firebase/compat/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCaiTL2OyxvMhJOwjgVEnObFpU8dp3kOVE",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "data-app-e5385.firebaseapp.com",
   projectId: "data-app-e5385",
   storageBucket: "data-app-e5385.appspot.com",
@@ -16,4 +16,4 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 
 // Activate firestore database
-const db = firebase.firestore();
+export const db = firebase.firestore();
