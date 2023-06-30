@@ -11,7 +11,7 @@ Frontend - Java JSP templating (View) +  bootstrap framework
 Backend - Java Springboot framework + Spring JPA
 Database - H2 in memory database
 
-## Feature (2 roles)
+## Features (2 roles)
 1. User Role
    - A user is able create, read, update and delete todo.
 
