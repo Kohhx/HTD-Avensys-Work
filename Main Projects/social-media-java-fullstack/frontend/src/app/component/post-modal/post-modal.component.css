@@ -1,0 +1,23 @@
+.btn-link {
+    display: inline-block;
+    color: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.center-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+
+  .icon{
+    cursor: pointer;
+  }
+
+  .icon:hover{
+    opacity: 0.7;
+  }

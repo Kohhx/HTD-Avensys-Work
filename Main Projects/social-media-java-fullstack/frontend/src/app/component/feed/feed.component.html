@@ -1,0 +1,102 @@
+<div style="background: #eef2f5; padding: 30px 0px 10px 0px">
+  <div class="container w-75">
+    <div class="panel">
+      <ul class="nav">
+        <div style="display: flex; margin: 10px; z-index: 2;">
+          <li class="nav-item">
+            <a class="nav-link active" style="color: #3e8392; font-weight: bold;" href="#">
+              FEED
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">OTHERS</a>
+          </li>
+        </div>
+      </ul>
+      <div class="panel-content" style="padding: 0px 20px">
+        <app-create-post-form (postCreated)="reloadPage($event)"></app-create-post-form>
+      </div>
+      <div class="panel">
+        <div class="panel-content" style="padding-top: 20px; padding-bottom: 5px">
+          <div *ngIf="items.length === 0" class="panel-title text-center mb-4 p-4">No posts</div>
+          <ng-container *ngIf="items.length !== 0">
+            <div class="panel-title">Posts</div>
+            <div *ngFor="let item of items" style="border-top: 1px solid #eee; margin-top: 20px">
+              <h3 style="margin-top: 20px; color: #3e8392">{{ item.title }}</h3>
+              <div style="display: flex; margin-top: 20px">
+                <img *ngIf="!item['user'].avatarUrl" [src]="defaultProfileImage" alt="" style="
+                    background: #3e8392;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                  " />
+                <img *ngIf="item['user'].avatarUrl" [src]="item['user'].avatarUrl" alt="" style="
+                    background: #3e8392;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                  " />
+                <div style="margin-left: 10px">
+                  <div>
+                    {{ item["user"].firstName }} {{ item["user"].lastName }}
+                  </div>
+                  <div>{{ item.updatedAt | date : "medium" }}</div>
+                </div>
+              </div>
+              <div style="margin-top: 15px">{{ item.caption }}</div>
+              <div *ngIf="item.contentUrl != null">
+                <img *ngIf="!fileUtil.isVideoOrImage(item.contentUrl)" [src]="item.contentUrl" alt="post image"
+                  style="width: 100%; margin-top: 20px" />
+                <img *ngIf="fileUtil.isImage(item.contentUrl)" [src]="item.contentUrl" alt="post image"
+                  style="width: 100%; margin-top: 20px;" />
+                <video *ngIf="fileUtil.isVideo(item.contentUrl)" [src]="item.contentUrl" alt="post video" controls
+                  style="width: 100%; margin-top: 20px;"></video>
+              </div>
+              <div
+                style="display: flex; justify-content: space-between; align-items: center; margin: 20px 10px 0px 0px;">
+                <div>
+                  <button type="button" class="btn btn-default btn-xs postbtn">
+                    <fa-icon [icon]="faShare" class="icon fa-sm" fontSize="12" style="color: #eee;"></fa-icon>
+                    Share</button>
+                  <button type="button" class="btn btn-default btn-xs postbtn" style="margin-left: 10px;">
+                    <fa-icon [icon]="faThumbsUp" class="icon fa-sm" fontSize="12" style="color: #eee;"></fa-icon>
+                    Like</button>
+                </div>
+                <span>127 likes - 3 comments</span>
+              </div>
+              <div class="activity__list__footer text-center w-100 comment-container">
+                <button type="button" class="btn-link comment-btn" style="
+                    margin-right: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  ">
+                  <img src="../../../assets/images/comment-icon.png" height="15px" style="margin: 0px 5px" />
+                  Comments
+                </button>
+              </div>
+              <div style="display: flex; margin: 20px 0px">
+                <img *ngIf="!authService.getProfileAvatar()" [src]="defaultProfileImage" alt="" style="
+                  background: #3e8392;
+                  height: 40px;
+                  width: 40px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                " />
+                <img *ngIf="authService.getProfileAvatar()" [src]="authService.getProfileAvatar()" alt="" style="
+                  background: #3e8392;
+                  height: 40px;
+                  width: 40px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                " />
+                <input class="form-control" placeholder="Write a comment"
+                  style="margin: auto; border-radius: 50px; background: #e5e6eb" />
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

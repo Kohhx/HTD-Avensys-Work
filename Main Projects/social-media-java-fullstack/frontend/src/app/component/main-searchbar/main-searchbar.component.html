@@ -1,0 +1,38 @@
+<form class="navbar-form form-inline" [formGroup]="searchBarForm">
+  <div class="input-group search-box">
+    <input
+      type="text"
+      id="search"
+      class="form-control input-custom"
+      style="background: #eee"
+      placeholder="Search Users"
+      formControlName="search"
+    />
+    <span class="input-group-addon align-middle">
+      <i class="material-icons">&#xE8B6;</i>
+    </span>
+
+    <div *ngIf="searchResults.length > 0" class="search-results">
+      <ng-container *ngFor="let result of searchResults">
+          <div class="search-result" (click)="goToProfile(result.id)">
+            <img
+              *ngIf="!result.avatarUrl"
+              class="search-avatar"
+              [src]="defaultProfileImage"
+              alt=""
+            />
+            <img
+              *ngIf="result.avatarUrl"
+              class="search-avatar"
+              [src]="result.avatarUrl"
+              alt=""
+            />
+            <div class="d-flex flex-column seach-info">
+              <p class="name">{{ result.firstName }} {{ result.lastName }}</p>
+              <p class="email">{{ result.email }}</p>
+            </div>
+          </div>
+      </ng-container>
+    </div>
+  </div>
+</form>

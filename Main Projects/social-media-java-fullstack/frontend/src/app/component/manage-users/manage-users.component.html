@@ -1,0 +1,101 @@
+<div class="container-fluid mt-4">
+  <!-- Search Bar -->
+  <div class="form-outline my-4">
+    <input
+      [(ngModel)]="searchTerm"
+      type="search"
+      class="form-control fw-bold rounded-5"
+      (keyup)="filterUsers()"
+      placeholder="Search users by id, name or email..."
+      aria-label="Search"
+    />
+  </div>
+
+  <!-- Items per page -->
+  <div class="d-flex justify-content-end me-4">
+    <label for="itemsPerPage" class="fw-bold">Users per page: </label>
+    <select
+      [(ngModel)]="usersPerPage"
+      name="itemsPerPage"
+      id="itemsPerPage"
+      class="ms-2"
+    >
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+    <table class="table table-striped mt-3 custom-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th></th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody
+        *ngFor="
+          let user of filteredUsersList
+            | paginate : { itemsPerPage: usersPerPage, currentPage: page }
+        "
+      >
+        <tr (click)="goToUserProfile(user.id)">
+          <td>{{ user.id }}</td>
+          <td>
+            <img *ngIf="user.avatarUrl == null" class="circle-thumbnail" [src]="defaultImage" />
+            <img *ngIf="user.avatarUrl != null"class="circle-thumbnail" src="{{ user.avatarUrl }}" />
+          </td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.rolesList.join(", ") }}</td>
+          <td>{{ user.createdAt | date }}</td>
+          <td>{{ user.updatedAt | date }}</td>
+          <td>
+            <button
+              class="btn btn-sm update-icon"
+              (click)="updateUser(user); $event.stopPropagation()"
+            >
+              <fa-icon [icon]="faPenToSquare"></fa-icon>
+            </button>
+            <button
+              class="btn btn-sm delete-icon"
+              (click)="deleteUser(user); $event.stopPropagation()"
+            >
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="d-flex justify-content-center mt-5">
+    <pagination-controls
+      previousLabel="Previous"
+      nextLabel="Next"
+      (pageChange)="page = $event"
+    >
+    </pagination-controls>
+  </div>
+
+  <app-user-modal
+    [type]="'admin'"
+    (updatedUser)="updatedUser($event)"
+    [item]="selectedUser"
+    class="center-section"
+    *ngIf="openUser"
+    (cancel)="closeUserModal()"
+  >
+  </app-user-modal>
+</div>
