@@ -4,7 +4,7 @@
 
 # Project 1 - Todo App
 
-This project aims to create a simple employee managment system that allows user to create an account, login and manage all employees in the app database and perform CRUD functions.
+This project aims to create a simple todo app that allows user registered and logged in to perform CRUD functions on a todo resources and manage a todo list.
 
 ## Tech Stack (MVC Model)
 Frontend - Java JSP templating (View) +  bootstrap framework
@@ -13,10 +13,7 @@ Database - H2 in memory database
 
 ## Feature (2 roles)
 1. User Role
-   - An employee is able to create a user profile account using the employeee managment app
-
-2. Admin Role
-   - An admin is able to view all, update and delete employees.
+   - A user is able create, read, update and delete todo.
 
 # Project 2 - Employee Mangement System (Fullstack spring JSP templating engine)
 
