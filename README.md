@@ -2,10 +2,10 @@
 
 ### This repo consist of Avensys JAVA fullstack training documentation of learnings, tutorials and assignments.
 
-#Project 1
+# Project 1
 
 
-#Project 2 -  Social Media Platform
+# Project 2 -  Social Media Platform
 
 This project aims to create a social media platform using Java, Spring, and Angular. The platform allows users to view and create posts with various types of content, including hyperlinks and media (videos), along with captions. Users can sign up, log in, and manage their own posts. An admin role is available to manage the platform, including maintaining posts and users.
 
@@ -84,7 +84,7 @@ Once the social media platform is set up, follow these steps to use the applicat
 6. If you have the admin role, you can manage posts and users, including deleting or updating them.
 
 
-#Project 3 - CV Parsing Application
+# Project 3 - CV Parsing Application
 
 This project aims to develop a CV Parsing application using Java Fullstack technologies. The application will extract specific fields from Word/PDF format CVs, including Name, Email ID, Mobile No., Skills, Years of Experience, and Recent 3 Companies.
 
