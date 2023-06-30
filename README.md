@@ -15,6 +15,7 @@ Database - H2 in memory database
 1. User Role
    - A user is able create, read, update and delete todo.
 
+
 # Project 2 - Employee Mangement System (Fullstack spring JSP templating engine)
 
 This project aims to create a simple employee managment system that allows user to create an account, login and manage all employees in the app database and perform CRUD functions.
@@ -30,6 +31,7 @@ Database - H2 in memory database
 
 2. Admin Role
    - An admin is able to view all, update and delete employees.
+
 
 # Project 3 -  Social Media Platform
 
