@@ -2,10 +2,39 @@
 
 ### This repo consist of Avensys JAVA fullstack training documentation of learnings, tutorials and assignments.
 
-# Project 1
+# Project 1 - Todo App
 
+This project aims to create a simple employee managment system that allows user to create an account, login and manage all employees in the app database and perform CRUD functions.
 
-# Project 2 -  Social Media Platform
+## Tech Stack (MVC Model)
+Frontend - Java JSP templating (View) +  bootstrap framework
+Backend - Java Springboot framework + Spring JPA
+Database - H2 in memory database
+
+## Feature (2 roles)
+1. User Role
+   - An employee is able to create a user profile account using the employeee managment app
+
+2. Admin Role
+   - An admin is able to view all, update and delete employees.
+
+# Project 2 - Employee Mangement System (Fullstack spring JSP templating engine)
+
+This project aims to create a simple employee managment system that allows user to create an account, login and manage all employees in the app database and perform CRUD functions.
+
+## Tech Stack (MVC Model)
+Frontend - Java JSP templating (View) +  bootstrap framework
+Backend - Java Springboot framework + Spring JPA
+Database - H2 in memory database
+
+## Feature (2 roles)
+1. User Role
+   - An employee is able to create a user profile account using the employeee managment app
+
+2. Admin Role
+   - An admin is able to view all, update and delete employees.
+
+# Project 3 -  Social Media Platform
 
 This project aims to create a social media platform using Java, Spring, and Angular. The platform allows users to view and create posts with various types of content, including hyperlinks and media (videos), along with captions. Users can sign up, log in, and manage their own posts. An admin role is available to manage the platform, including maintaining posts and users.
 
@@ -84,7 +113,7 @@ Once the social media platform is set up, follow these steps to use the applicat
 6. If you have the admin role, you can manage posts and users, including deleting or updating them.
 
 
-# Project 3 - CV Parsing Application
+# Project 4 - CV Parsing Application
 
 This project aims to develop a CV Parsing application using Java Fullstack technologies. The application will extract specific fields from Word/PDF format CVs, including Name, Email ID, Mobile No., Skills, Years of Experience, and Recent 3 Companies.
 
